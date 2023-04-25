@@ -1,0 +1,11 @@
+query AccountsAtBlock {
+  accounts(block: { number: 17122266 }, where: { ERC20balances_: { value_not: "0" } }) {
+    id
+    ERC20balances {
+      value
+      contract {
+        symbol
+      }
+    }
+  }
+}

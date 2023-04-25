@@ -1,0 +1,97 @@
+specVersion: 0.0.4
+schema:
+  file: schema.graphql
+dataSources:
+  - kind: ethereum/contract
+    name: Auxo
+    network: mainnet
+    source:
+      address: "0xff030228a046f640143dab19be00009606c89b1d"
+      abi: IERC20
+      startBlock: 17040200
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.6
+      language: wasm/assemblyscript
+      entities:
+        - ERC20Contract
+      abis:
+        - name: IERC20
+          file: ./abis/ERC20.json
+      eventHandlers:
+        - event: Transfer(indexed address,indexed address,uint256)
+          handler: handleTransfer
+        - event: Approval(indexed address,indexed address,uint256)
+          handler: handleApproval
+      file: ./handlers/erc20.ts
+
+  - kind: ethereum/contract
+    name: ARV
+    network: mainnet
+    source:
+      address: "0x069c0Ed12dB7199c1DdAF73b94de75AAe8061d33"
+      abi: IERC20
+      startBlock: 17040200
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.6
+      language: wasm/assemblyscript
+      entities:
+        - ERC20Contract
+      abis:
+        - name: IERC20
+          file: ./abis/ERC20.json
+      eventHandlers:
+        - event: Transfer(indexed address,indexed address,uint256)
+          handler: handleTransfer
+        - event: Approval(indexed address,indexed address,uint256)
+          handler: handleApproval
+      file: ./handlers/erc20.ts
+
+  - kind: ethereum/contract
+    name: PRV
+    network: mainnet
+    source:
+      address: "0xc72fbD264b40D88E445bcf82663D63FF21e722AF"
+      abi: IERC20
+      startBlock: 17040200
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.6
+      language: wasm/assemblyscript
+      entities:
+        - ERC20Contract
+      abis:
+        - name: IERC20
+          file: ./abis/ERC20.json
+      eventHandlers:
+        - event: Transfer(indexed address,indexed address,uint256)
+          handler: handleTransfer
+        - event: Approval(indexed address,indexed address,uint256)
+          handler: handleApproval
+      file: ./handlers/erc20.ts
+
+  - kind: ethereum/contract
+    name: RollStaker
+    network: mainnet
+    source:
+      address: "0x096b4F2253a430F33edc9B8e6A8e1d2fb4faA317"
+      abi: IRollStaker
+      startBlock: 17040200
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.6
+      language: wasm/assemblyscript
+      entities:
+        - RollStakerContract
+      abis:
+        - name: IRollStaker
+          file: ./abis/RollStaker.json
+      eventHandlers:
+        - event: Deposited(indexed address,indexed address,indexed uint8,uint256)
+          handler: handleDeposit
+        - event: Withdrawn(indexed address,indexed uint8,uint256)
+          handler: handleWithdraw
+        - event: Exited(indexed address,indexed uint8)
+          handler: handleExit
+      file: ./handlers/rollstaker.ts
