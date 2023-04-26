@@ -1,7 +1,11 @@
 {
   "dependencies": {
     "@amxx/graphprotocol-utils": "^1.1.0",
-    "@graphprotocol/graph-ts": "^0.29.3",
+    "@graphprotocol/graph-ts": "^0.26.0",
     "@openzeppelin/subgraphs": "^0.1.8-5"
+  },
+  "scripts": {
+    "build": "./build.sh",
+    "deploy": "yarn build && graph deploy --product hosted-service jordaniza/pqr-auxo"
   }
 }

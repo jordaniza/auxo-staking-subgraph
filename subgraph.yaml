@@ -95,3 +95,36 @@ dataSources:
         - event: Exited(indexed address,indexed uint8)
           handler: handleExit
       file: ./handlers/rollstaker.ts
+
+  - kind: ethereum/contract
+    name: TokenLocker
+    network: mainnet
+    source:
+      address: "0x3E70FF09C8f53294FFd389a7fcF7276CC3d92e64"
+      abi: ITokenLocker
+      startBlock: 17040200
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.6
+      language: wasm/assemblyscript
+      entities:
+        - TokenLockerContract
+      abis:
+        - name: ITokenLocker
+          file: ./abis/TokenLocker.json
+      eventHandlers:
+        - event: Deposited(uint192,uint32,indexed address)
+          handler: handleDeposited
+        - event: Withdrawn(uint192,indexed address)
+          handler: handleWithdrawn
+        - event: BoostedToMax(uint192,indexed address)
+          handler: handleBoostedToMax
+        - event: IncreasedAmount(uint192,indexed address)
+          handler: handleIncreasedAmount
+        - event: IncreasedDuration(uint192,uint32,uint32,indexed address)
+          handler: handleIncreasedDuration
+        - event: Ejected(uint192,indexed address)
+          handler: handleEjected
+        - event: EarlyExit(address,uint256)
+          handler: handleEarlyExit
+      file: ./handlers/tokenLocker.ts

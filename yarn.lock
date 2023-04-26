@@ -17,13 +17,6 @@
   dependencies:
     assemblyscript "0.19.10"
 
-"@graphprotocol/graph-ts@^0.29.3":
-  version "0.29.3"
-  resolved "https://registry.yarnpkg.com/@graphprotocol/graph-ts/-/graph-ts-0.29.3.tgz#f0a664790e966f5fb9bce317a8861e84ec1f3394"
-  integrity sha512-FXBLGlunOSwjiUXYEz1J9J/I2D/myldyib/9v0R+gn/NJaYqUkXD39UmIuRxqj9cBzB/FYojHzoHidIG5nYZDw==
-  dependencies:
-    assemblyscript "0.19.10"
-
 "@openzeppelin/contracts@^4.6.0":
   version "4.8.3"
   resolved "https://registry.yarnpkg.com/@openzeppelin/contracts/-/contracts-4.8.3.tgz#cbef3146bfc570849405f59cba18235da95a252a"

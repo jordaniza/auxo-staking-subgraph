@@ -1,0 +1,131 @@
+type TokenLockerContract @entity(immutable: true) {
+  id: Bytes!
+  asAccount: Account!
+  veToken: ERC20Contract!
+
+  locks: [ARVLock!]! @derivedFrom(field: "contract")
+
+  deposits: [ARVDeposit!]! @derivedFrom(field: "contract")
+  boosts: [ARVBoostToMax!]! @derivedFrom(field: "contract")
+  increaseAmounts: [ARVIncreaseAmount!]! @derivedFrom(field: "contract")
+  increaseDurations: [ARVIncreaseDuration!]! @derivedFrom(field: "contract")
+  withdraws: [ARVWithdrawal!]! @derivedFrom(field: "contract")
+  exits: [ARVEarlyExit!]! @derivedFrom(field: "contract")
+  ejects: [ARVEject!]! @derivedFrom(field: "contract")
+}
+
+"""
+Represents the current amount, duration and timestamp of a lock,
+along with associated events
+"""
+type ARVLock @entity {
+  id: ID!
+  contract: TokenLockerContract!
+  account: Account
+
+  auxoValue: BigDecimal!
+  auxoValueExact: BigInt!
+
+  arvValue: BigDecimal!
+  arvValueExact: BigInt!
+
+  # todo decayed amount
+
+  lockedAt: BigInt!
+  lockDuration: BigInt!
+
+  deposits: [ARVDeposit!]! @derivedFrom(field: "lock")
+  boosts: [ARVBoostToMax!]! @derivedFrom(field: "lock")
+  increaseAmounts: [ARVIncreaseAmount!]! @derivedFrom(field: "lock")
+  increaseDurations: [ARVIncreaseDuration!]! @derivedFrom(field: "lock")
+  withdraws: [ARVWithdrawal!]! @derivedFrom(field: "lock")
+  exits: [ARVEarlyExit!]! @derivedFrom(field: "lock")
+  ejects: [ARVEject!]! @derivedFrom(field: "lock")
+}
+
+type ARVDeposit implements Event @entity(immutable: true) {
+  id: ID!
+  transaction: Transaction!
+  emitter: Account!
+  timestamp: BigInt!
+  owner: Account!
+  contract: TokenLockerContract!
+  amount: BigDecimal!
+  amountExact: BigInt!
+  lockDuration: BigInt!
+  lock: ARVLock!
+}
+
+type ARVBoostToMax implements Event @entity(immutable: true) {
+  id: ID!
+  transaction: Transaction!
+  emitter: Account!
+  timestamp: BigInt!
+  contract: TokenLockerContract!
+  owner: Account!
+  amount: BigDecimal!
+  amountExact: BigInt!
+  lock: ARVLock!
+}
+
+type ARVIncreaseAmount implements Event @entity(immutable: true) {
+  id: ID!
+  transaction: Transaction!
+  emitter: Account!
+  timestamp: BigInt!
+  contract: TokenLockerContract!
+  owner: Account!
+  amount: BigDecimal!
+  amountExact: BigInt!
+  lock: ARVLock!
+}
+
+type ARVIncreaseDuration implements Event @entity(immutable: true) {
+  id: ID!
+  transaction: Transaction!
+  emitter: Account!
+  timestamp: BigInt!
+  contract: TokenLockerContract!
+  owner: Account!
+  amount: BigDecimal!
+  amountExact: BigInt!
+  lockDuration: BigInt!
+  lockedAt: BigInt!
+  lock: ARVLock!
+}
+
+type ARVWithdrawal implements Event @entity(immutable: true) {
+  id: ID!
+  transaction: Transaction!
+  emitter: Account!
+  timestamp: BigInt!
+  contract: TokenLockerContract!
+  owner: Account!
+  amount: BigDecimal!
+  amountExact: BigInt!
+  lock: ARVLock!
+}
+
+type ARVEarlyExit implements Event @entity(immutable: true) {
+  id: ID!
+  transaction: Transaction!
+  emitter: Account!
+  timestamp: BigInt!
+  contract: TokenLockerContract!
+  owner: Account!
+  amount: BigDecimal!
+  amountExact: BigInt!
+  lock: ARVLock!
+}
+
+type ARVEject implements Event @entity(immutable: true) {
+  id: ID!
+  transaction: Transaction!
+  emitter: Account!
+  timestamp: BigInt!
+  owner: Account!
+  amount: BigDecimal!
+  amountExact: BigInt!
+  contract: TokenLockerContract
+  lock: ARVLock!
+}

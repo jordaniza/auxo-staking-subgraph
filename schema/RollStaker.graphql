@@ -1,0 +1,63 @@
+type RollStakerContract @entity(immutable: true) {
+  id: Bytes!
+  asAccount: Account!
+
+  currentEpochId: Int
+  stakingToken: ERC20Contract!
+  epochBalances: [BigInt!]
+  epochPendingBalance: BigInt
+
+  balances: [PRVStakingBalance!]! @derivedFrom(field: "contract")
+  deposits: [PRVDeposit!]! @derivedFrom(field: "contract")
+  withdraws: [PRVWithdraw!]! @derivedFrom(field: "contract")
+  exits: [PRVExit!]! @derivedFrom(field: "contract")
+}
+
+type PRVStakingBalance @entity {
+  id: ID!
+  contract: RollStakerContract!
+  account: Account!
+  value: BigDecimal!
+  valueExact: BigInt!
+  depositEvent: [PRVDeposit!]! @derivedFrom(field: "receiverBalance")
+  withdrawEvent: [PRVWithdraw!]! @derivedFrom(field: "receiverBalance")
+  exitEvent: [PRVExit!]! @derivedFrom(field: "receiverBalance")
+}
+
+type PRVDeposit implements Event @entity(immutable: true) {
+  id: ID!
+  emitter: Account!
+  transaction: Transaction!
+  timestamp: BigInt!
+  contract: RollStakerContract!
+  depositor: Account!
+  receiver: Account!
+  receiverBalance: PRVStakingBalance
+  epoch: Int!
+  value: BigDecimal!
+  valueExact: BigInt!
+}
+
+type PRVWithdraw implements Event @entity(immutable: true) {
+  id: ID!
+  emitter: Account!
+  transaction: Transaction!
+  timestamp: BigInt!
+  contract: RollStakerContract!
+  receiver: Account!
+  receiverBalance: PRVStakingBalance!
+  epoch: Int!
+  value: BigDecimal!
+  valueExact: BigInt!
+}
+
+type PRVExit implements Event @entity(immutable: true) {
+  id: ID!
+  emitter: Account!
+  transaction: Transaction!
+  timestamp: BigInt!
+  contract: RollStakerContract!
+  receiver: Account!
+  receiverBalance: PRVStakingBalance!
+  epoch: Int!
+}

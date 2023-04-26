@@ -1,9 +1,31 @@
-query AccountsAtBlock {
-  accounts(block: { number: 17122266 }, where: { ERC20balances_: { value_not: "0" } }) {
+"""
+Excludes accounts with zero balances, such as pass-through smart contracts
+"""
+query NonZeroAccounts {
+  accounts(
+    where: {
+      or: [
+        { ERC20balances_: { value_not: "0" } }
+        { ARVLocks_: { auxoValue_not: "0" } }
+        { PRVStakingBalances_: { value_not: "0" } }
+      ]
+    }
+  ) {
     id
+    ARVLocks {
+      auxoValue
+      arvValue
+      lockedAt
+      lockDuration
+    }
+    PRVStakingBalances {
+      value
+    }
     ERC20balances {
       value
       contract {
+        id
+        name
         symbol
       }
     }

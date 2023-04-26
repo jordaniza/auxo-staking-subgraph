@@ -1,0 +1,45 @@
+"""
+Links all our contracts to individual ethereum accounts so they can be queried as a list
+"""
+type Account @entity {
+  id: Bytes!
+
+  asERC20: ERC20Contract
+  ERC20balances: [ERC20Balance!]! @derivedFrom(field: "account")
+  ERC20approvalsOwner: [ERC20Approval!]! @derivedFrom(field: "owner")
+  ERC20approvalsSpender: [ERC20Approval!]! @derivedFrom(field: "spender")
+  ERC20transferFromEvent: [ERC20Transfer!]! @derivedFrom(field: "from")
+  ERC20transferToEvent: [ERC20Transfer!]! @derivedFrom(field: "to")
+
+  asRollStaker: RollStakerContract
+  PRVStakingBalances: [PRVStakingBalance!]! @derivedFrom(field: "account")
+  PRVDepositEvent: [PRVDeposit!]! @derivedFrom(field: "receiver")
+  PRVWithdrawEvent: [PRVWithdraw!]! @derivedFrom(field: "receiver")
+  PRVExitEvent: [PRVExit!]! @derivedFrom(field: "receiver")
+
+  asTokenLocker: TokenLockerContract
+  ARVLocks: [ARVLock!]! @derivedFrom(field: "account")
+  ARVDeposits: [ARVDeposit!]! @derivedFrom(field: "owner")
+  ARVBoosts: [ARVBoostToMax!]! @derivedFrom(field: "owner")
+  ARVIncreaseAmounts: [ARVIncreaseAmount!]! @derivedFrom(field: "owner")
+  ARVIncreaseDurations: [ARVIncreaseDuration!]! @derivedFrom(field: "owner")
+  ARVWithdraws: [ARVWithdrawal!]! @derivedFrom(field: "owner")
+  ARVExits: [ARVEarlyExit!]! @derivedFrom(field: "owner")
+  ARVEjects: [ARVEject!]! @derivedFrom(field: "owner")
+
+  events: [Event!]! @derivedFrom(field: "emitter")
+}
+
+interface Event {
+  id: ID!
+  transaction: Transaction!
+  emitter: Account!
+  timestamp: BigInt!
+}
+
+type Transaction @entity(immutable: true) {
+  id: ID!
+  timestamp: BigInt!
+  blockNumber: BigInt!
+  events: [Event!]! @derivedFrom(field: "transaction")
+}
