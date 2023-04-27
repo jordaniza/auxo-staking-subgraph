@@ -1,0 +1,29 @@
+"""
+Snapshot of all accounts with PRV non zero balances,
+at a given block number
+"""
+query PRVNonZeroBalancesAtBlock {
+  erc20Balances(
+    block: {number: 17135922}
+    where: {
+      and: [
+        {contract_: {symbol: "PRV"}},
+        {value_not: "0"},
+        # null account is 'accumulating' PRV
+        # it does not appear to be affecting results but we need to investigate
+        # meanwhile, we filter it out
+        {account_not: null}
+      ]
+    }
+  ) {
+    account {
+      id
+    }
+    contract {
+      symbol
+      name
+    }
+    value
+    valueExact
+  }
+}

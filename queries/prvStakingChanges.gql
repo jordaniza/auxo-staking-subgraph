@@ -1,0 +1,35 @@
+"""
+Fetches the PRV Staking history for a given account
+"""
+query PRVStakingChanges {
+  account(id: "0x0fa36923d4dd8139673905dcddbc747ad95ef353") {
+    id
+    PRVStakingBalances {
+      value
+      valueExact
+      depositEvent {
+        epoch
+        value
+        timestamp
+        transaction {
+          id
+        }
+      }
+      withdrawEvent {
+        epoch
+        value
+        timestamp
+        transaction {
+          id
+        }
+      }
+      exitEvent {
+        epoch
+        timestamp
+        transaction {
+          id
+        }
+      }
+    }
+  }
+}

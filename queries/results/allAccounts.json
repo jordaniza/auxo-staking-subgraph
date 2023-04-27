@@ -1,0 +1,1600 @@
+{
+  "data": {
+    "accounts": [
+      {
+        "id": "0x00ba3ca0b6df1486c912893d9f288311a60ed753",
+        "ARVLocks": [
+          {
+            "auxoValue": "2071.42896152742177303",
+            "arvValue": "2071.42896152742177303",
+            "lockedAt": "1682076251",
+            "lockDuration": "94608000"
+          }
+        ],
+        "PRVStakingBalances": [],
+        "ERC20balances": [
+          {
+            "value": "2071.42896152742177303",
+            "contract": {
+              "id": "0x069c0ed12db7199c1ddaf73b94de75aae8061d33",
+              "name": "Auxo Active Reward Vault",
+              "symbol": "ARV"
+            }
+          }
+        ]
+      },
+      {
+        "id": "0x00c67d9d6d3d13b42a87424e145826c467cccd84",
+        "ARVLocks": [
+          {
+            "auxoValue": "231.266026932522354597",
+            "arvValue": "100.289575717516578243",
+            "lockedAt": "1682341727",
+            "lockDuration": "49932000"
+          }
+        ],
+        "PRVStakingBalances": [],
+        "ERC20balances": [
+          {
+            "value": "100.289575717516578243",
+            "contract": {
+              "id": "0x069c0ed12db7199c1ddaf73b94de75aae8061d33",
+              "name": "Auxo Active Reward Vault",
+              "symbol": "ARV"
+            }
+          }
+        ]
+      },
+      {
+        "id": "0x079f4c9456109e34bdd8153086d0b0372d196508",
+        "ARVLocks": [],
+        "PRVStakingBalances": [],
+        "ERC20balances": [
+          {
+            "value": "1000",
+            "contract": {
+              "id": "0xc72fbd264b40d88e445bcf82663d63ff21e722af",
+              "name": "Auxo Passive Reward Vault",
+              "symbol": "PRV"
+            }
+          }
+        ]
+      },
+      {
+        "id": "0x0810c422e4abd05c752618b403d26cf60bb50b5c",
+        "ARVLocks": [
+          {
+            "auxoValue": "1927.51763273628037967",
+            "arvValue": "1927.51763273628037967",
+            "lockedAt": "1681907867",
+            "lockDuration": "94608000"
+          }
+        ],
+        "PRVStakingBalances": [],
+        "ERC20balances": [
+          {
+            "value": "1927.51763273628037967",
+            "contract": {
+              "id": "0x069c0ed12db7199c1ddaf73b94de75aae8061d33",
+              "name": "Auxo Active Reward Vault",
+              "symbol": "ARV"
+            }
+          }
+        ]
+      },
+      {
+        "id": "0x096b4f2253a430f33edc9b8e6a8e1d2fb4faa317",
+        "ARVLocks": [],
+        "PRVStakingBalances": [],
+        "ERC20balances": [
+          {
+            "value": "16875.099746409909712322",
+            "contract": {
+              "id": "0xc72fbd264b40d88e445bcf82663d63ff21e722af",
+              "name": "Auxo Passive Reward Vault",
+              "symbol": "PRV"
+            }
+          }
+        ]
+      },
+      {
+        "id": "0x0eb21ed8543789c79bed81d85b13ea31e7ac805b",
+        "ARVLocks": [],
+        "PRVStakingBalances": [],
+        "ERC20balances": [
+          {
+            "value": "39.48082223671304059",
+            "contract": {
+              "id": "0xc72fbd264b40d88e445bcf82663d63ff21e722af",
+              "name": "Auxo Passive Reward Vault",
+              "symbol": "PRV"
+            }
+          }
+        ]
+      },
+      {
+        "id": "0x0fa36923d4dd8139673905dcddbc747ad95ef353",
+        "ARVLocks": [],
+        "PRVStakingBalances": [
+          {
+            "value": "1244.608189632602812657"
+          }
+        ],
+        "ERC20balances": [
+          {
+            "value": "0",
+            "contract": {
+              "id": "0xc72fbd264b40d88e445bcf82663d63ff21e722af",
+              "name": "Auxo Passive Reward Vault",
+              "symbol": "PRV"
+            }
+          }
+        ]
+      },
+      {
+        "id": "0x124c5e21a073fb4694308fbdf72af362451eae12",
+        "ARVLocks": [],
+        "PRVStakingBalances": [],
+        "ERC20balances": [
+          {
+            "value": "23.932837683484909166",
+            "contract": {
+              "id": "0xc72fbd264b40d88e445bcf82663d63ff21e722af",
+              "name": "Auxo Passive Reward Vault",
+              "symbol": "PRV"
+            }
+          }
+        ]
+      },
+      {
+        "id": "0x14b30b46ec4fa1a993806bd5dda4195c5a82353e",
+        "ARVLocks": [
+          {
+            "auxoValue": "75.037658912123231812",
+            "arvValue": "75.037658912123231812",
+            "lockedAt": "1682221595",
+            "lockDuration": "94608000"
+          }
+        ],
+        "PRVStakingBalances": [],
+        "ERC20balances": [
+          {
+            "value": "75.037658912123231812",
+            "contract": {
+              "id": "0x069c0ed12db7199c1ddaf73b94de75aae8061d33",
+              "name": "Auxo Active Reward Vault",
+              "symbol": "ARV"
+            }
+          }
+        ]
+      },
+      {
+        "id": "0x18f23c3b96918518235136920f39cb833b113f00",
+        "ARVLocks": [],
+        "PRVStakingBalances": [],
+        "ERC20balances": [
+          {
+            "value": "2.230950032161280998",
+            "contract": {
+              "id": "0xc72fbd264b40d88e445bcf82663d63ff21e722af",
+              "name": "Auxo Passive Reward Vault",
+              "symbol": "PRV"
+            }
+          }
+        ]
+      },
+      {
+        "id": "0x198ca1beacf70b82c4e6de21e8cb7b6da6d8477a",
+        "ARVLocks": [
+          {
+            "auxoValue": "902.08603438764250306",
+            "arvValue": "902.08603438764250306",
+            "lockedAt": "1682341211",
+            "lockDuration": "94608000"
+          }
+        ],
+        "PRVStakingBalances": [],
+        "ERC20balances": [
+          {
+            "value": "902.08603438764250306",
+            "contract": {
+              "id": "0x069c0ed12db7199c1ddaf73b94de75aae8061d33",
+              "name": "Auxo Active Reward Vault",
+              "symbol": "ARV"
+            }
+          }
+        ]
+      },
+      {
+        "id": "0x19a61e7238270ca99f931c08d7bcff1984f38ae4",
+        "ARVLocks": [
+          {
+            "auxoValue": "442.766756688027321357",
+            "arvValue": "442.766756688027321357",
+            "lockedAt": "1682082203",
+            "lockDuration": "94608000"
+          }
+        ],
+        "PRVStakingBalances": [],
+        "ERC20balances": [
+          {
+            "value": "442.766756688027321357",
+            "contract": {
+              "id": "0x069c0ed12db7199c1ddaf73b94de75aae8061d33",
+              "name": "Auxo Active Reward Vault",
+              "symbol": "ARV"
+            }
+          }
+        ]
+      },
+      {
+        "id": "0x1a1087bf077f74fb21fd838a8a25cf9fe0818450",
+        "ARVLocks": [],
+        "PRVStakingBalances": [],
+        "ERC20balances": [
+          {
+            "value": "106.685047320221451048",
+            "contract": {
+              "id": "0xc72fbd264b40d88e445bcf82663d63ff21e722af",
+              "name": "Auxo Passive Reward Vault",
+              "symbol": "PRV"
+            }
+          }
+        ]
+      },
+      {
+        "id": "0x1a6db538813dbfa63e1f19f8804447187b7d401d",
+        "ARVLocks": [],
+        "PRVStakingBalances": [],
+        "ERC20balances": [
+          {
+            "value": "2031.824910296686966548",
+            "contract": {
+              "id": "0xc72fbd264b40d88e445bcf82663d63ff21e722af",
+              "name": "Auxo Passive Reward Vault",
+              "symbol": "PRV"
+            }
+          }
+        ]
+      },
+      {
+        "id": "0x1b50afed405c9930eae5fb3803418b03f9615b1c",
+        "ARVLocks": [
+          {
+            "auxoValue": "558.373125855414993527",
+            "arvValue": "242.141072888505864503",
+            "lockedAt": "1681973999",
+            "lockDuration": "1000000000000000000"
+          }
+        ],
+        "PRVStakingBalances": [],
+        "ERC20balances": [
+          {
+            "value": "558.373125855414993527",
+            "contract": {
+              "id": "0x069c0ed12db7199c1ddaf73b94de75aae8061d33",
+              "name": "Auxo Active Reward Vault",
+              "symbol": "ARV"
+            }
+          }
+        ]
+      },
+      {
+        "id": "0x2024f13b2fdb7957feb422af38edd5218e79ce05",
+        "ARVLocks": [],
+        "PRVStakingBalances": [
+          {
+            "value": "5638.27688322992868082"
+          }
+        ],
+        "ERC20balances": [
+          {
+            "value": "0",
+            "contract": {
+              "id": "0xc72fbd264b40d88e445bcf82663d63ff21e722af",
+              "name": "Auxo Passive Reward Vault",
+              "symbol": "PRV"
+            }
+          }
+        ]
+      },
+      {
+        "id": "0x20a1a940fa696513bf938fac130f5272f38c0dc8",
+        "ARVLocks": [],
+        "PRVStakingBalances": [
+          {
+            "value": "34.075447748285270452"
+          }
+        ],
+        "ERC20balances": [
+          {
+            "value": "0",
+            "contract": {
+              "id": "0xc72fbd264b40d88e445bcf82663d63ff21e722af",
+              "name": "Auxo Passive Reward Vault",
+              "symbol": "PRV"
+            }
+          }
+        ]
+      },
+      {
+        "id": "0x2346b18e56010272035e8ea7cf4c757fc4e3f46a",
+        "ARVLocks": [],
+        "PRVStakingBalances": [],
+        "ERC20balances": [
+          {
+            "value": "196.517451852814365415",
+            "contract": {
+              "id": "0xc72fbd264b40d88e445bcf82663d63ff21e722af",
+              "name": "Auxo Passive Reward Vault",
+              "symbol": "PRV"
+            }
+          }
+        ]
+      },
+      {
+        "id": "0x2437db820de92d8dd64b524954fa0d160767c471",
+        "ARVLocks": [
+          {
+            "auxoValue": "234.69669238298193616",
+            "arvValue": "234.69669238298193616",
+            "lockedAt": "1682123915",
+            "lockDuration": "94608000"
+          }
+        ],
+        "PRVStakingBalances": [],
+        "ERC20balances": [
+          {
+            "value": "234.69669238298193616",
+            "contract": {
+              "id": "0x069c0ed12db7199c1ddaf73b94de75aae8061d33",
+              "name": "Auxo Active Reward Vault",
+              "symbol": "ARV"
+            }
+          }
+        ]
+      },
+      {
+        "id": "0x2459d93923cc940e3aa1935ead83ef8011534bb1",
+        "ARVLocks": [
+          {
+            "auxoValue": "350.830981548176653787",
+            "arvValue": "350.830981548176653787",
+            "lockedAt": "1682211587",
+            "lockDuration": "94608000"
+          }
+        ],
+        "PRVStakingBalances": [],
+        "ERC20balances": [
+          {
+            "value": "350.830981548176653787",
+            "contract": {
+              "id": "0x069c0ed12db7199c1ddaf73b94de75aae8061d33",
+              "name": "Auxo Active Reward Vault",
+              "symbol": "ARV"
+            }
+          }
+        ]
+      },
+      {
+        "id": "0x305308cc98560e63e933a6bd70392617c9829bf8",
+        "ARVLocks": [
+          {
+            "auxoValue": "63.625987462774524557",
+            "arvValue": "63.625987462774524557",
+            "lockedAt": "1682334515",
+            "lockDuration": "94608000"
+          }
+        ],
+        "PRVStakingBalances": [],
+        "ERC20balances": [
+          {
+            "value": "63.625987462774524557",
+            "contract": {
+              "id": "0x069c0ed12db7199c1ddaf73b94de75aae8061d33",
+              "name": "Auxo Active Reward Vault",
+              "symbol": "ARV"
+            }
+          }
+        ]
+      },
+      {
+        "id": "0x3070f20f86fda706ac380f5060d256028a46ec29",
+        "ARVLocks": [
+          {
+            "auxoValue": "69.55680763378817",
+            "arvValue": "69.55680763378817",
+            "lockedAt": "1682429879",
+            "lockDuration": "94608000"
+          }
+        ],
+        "PRVStakingBalances": [],
+        "ERC20balances": [
+          {
+            "value": "69.55680763378817",
+            "contract": {
+              "id": "0x069c0ed12db7199c1ddaf73b94de75aae8061d33",
+              "name": "Auxo Active Reward Vault",
+              "symbol": "ARV"
+            }
+          }
+        ]
+      },
+      {
+        "id": "0x3e541de9da4dcc73c7cfd225d4da6f232d758393",
+        "ARVLocks": [],
+        "PRVStakingBalances": [],
+        "ERC20balances": [
+          {
+            "value": "35.389785624600151889",
+            "contract": {
+              "id": "0xc72fbd264b40d88e445bcf82663d63ff21e722af",
+              "name": "Auxo Passive Reward Vault",
+              "symbol": "PRV"
+            }
+          }
+        ]
+      },
+      {
+        "id": "0x3e70ff09c8f53294ffd389a7fcf7276cc3d92e64",
+        "ARVLocks": [],
+        "PRVStakingBalances": [],
+        "ERC20balances": [
+          {
+            "value": "34267.360125387247983505",
+            "contract": {
+              "id": "0xff030228a046f640143dab19be00009606c89b1d",
+              "name": "Auxo",
+              "symbol": "AUXO"
+            }
+          }
+        ]
+      },
+      {
+        "id": "0x420ae7560821a43826a2ead522ac3fa819ce9299",
+        "ARVLocks": [],
+        "PRVStakingBalances": [
+          {
+            "value": "354.249740382455945049"
+          }
+        ],
+        "ERC20balances": [
+          {
+            "value": "0",
+            "contract": {
+              "id": "0xc72fbd264b40d88e445bcf82663d63ff21e722af",
+              "name": "Auxo Passive Reward Vault",
+              "symbol": "PRV"
+            }
+          }
+        ]
+      },
+      {
+        "id": "0x4282ec9835edad61b9a58fa02b78369d0978c430",
+        "ARVLocks": [],
+        "PRVStakingBalances": [
+          {
+            "value": "206.094200881877584213"
+          }
+        ],
+        "ERC20balances": [
+          {
+            "value": "0",
+            "contract": {
+              "id": "0xc72fbd264b40d88e445bcf82663d63ff21e722af",
+              "name": "Auxo Passive Reward Vault",
+              "symbol": "PRV"
+            }
+          }
+        ]
+      },
+      {
+        "id": "0x43079513ebd84afb15be79021c420fe8055bc635",
+        "ARVLocks": [],
+        "PRVStakingBalances": [
+          {
+            "value": "1023.920335183051336641"
+          }
+        ],
+        "ERC20balances": [
+          {
+            "value": "0",
+            "contract": {
+              "id": "0xc72fbd264b40d88e445bcf82663d63ff21e722af",
+              "name": "Auxo Passive Reward Vault",
+              "symbol": "PRV"
+            }
+          }
+        ]
+      },
+      {
+        "id": "0x461f635488972409981edbd043834dbaa7239fa6",
+        "ARVLocks": [
+          {
+            "auxoValue": "5000",
+            "arvValue": "2016.433990957",
+            "lockedAt": "1682409815",
+            "lockDuration": "1000000000000000000"
+          }
+        ],
+        "PRVStakingBalances": [],
+        "ERC20balances": [
+          {
+            "value": "5000",
+            "contract": {
+              "id": "0x069c0ed12db7199c1ddaf73b94de75aae8061d33",
+              "name": "Auxo Active Reward Vault",
+              "symbol": "ARV"
+            }
+          }
+        ]
+      },
+      {
+        "id": "0x477c8ece9393713d258169aa50cdaf27e422214d",
+        "ARVLocks": [
+          {
+            "auxoValue": "429.942705161772016221",
+            "arvValue": "429.942705161772016221",
+            "lockedAt": "1682381903",
+            "lockDuration": "94608000"
+          }
+        ],
+        "PRVStakingBalances": [],
+        "ERC20balances": [
+          {
+            "value": "429.942705161772016221",
+            "contract": {
+              "id": "0x069c0ed12db7199c1ddaf73b94de75aae8061d33",
+              "name": "Auxo Active Reward Vault",
+              "symbol": "ARV"
+            }
+          }
+        ]
+      },
+      {
+        "id": "0x4cc408d5428dd610630ad0e198d8e6d8acfed4e6",
+        "ARVLocks": [],
+        "PRVStakingBalances": [],
+        "ERC20balances": [
+          {
+            "value": "393.193058057649011383",
+            "contract": {
+              "id": "0xc72fbd264b40d88e445bcf82663d63ff21e722af",
+              "name": "Auxo Passive Reward Vault",
+              "symbol": "PRV"
+            }
+          }
+        ]
+      },
+      {
+        "id": "0x50be72f4dac794d00f84786dc414f0107f6f972b",
+        "ARVLocks": [],
+        "PRVStakingBalances": [
+          {
+            "value": "201.621659839801219437"
+          }
+        ],
+        "ERC20balances": []
+      },
+      {
+        "id": "0x519a0df0bd2b586b6f7126799c30a243e13abcbe",
+        "ARVLocks": [
+          {
+            "auxoValue": "4161.278192283241786818",
+            "arvValue": "4161.278192283241786818",
+            "lockedAt": "1682079515",
+            "lockDuration": "94608000"
+          }
+        ],
+        "PRVStakingBalances": [],
+        "ERC20balances": [
+          {
+            "value": "4161.278192283241786818",
+            "contract": {
+              "id": "0x069c0ed12db7199c1ddaf73b94de75aae8061d33",
+              "name": "Auxo Active Reward Vault",
+              "symbol": "ARV"
+            }
+          }
+        ]
+      },
+      {
+        "id": "0x56fcfeb7d7afa46c9aa58f08a04fbb11eb27808c",
+        "ARVLocks": [],
+        "PRVStakingBalances": [
+          {
+            "value": "286.386653707397656251"
+          }
+        ],
+        "ERC20balances": []
+      },
+      {
+        "id": "0x58e603d9824976f7a3940c6b408f0ffa523a216c",
+        "ARVLocks": [
+          {
+            "auxoValue": "194.629688256154106839",
+            "arvValue": "194.629688256154106839",
+            "lockedAt": "1681913231",
+            "lockDuration": "94608000"
+          }
+        ],
+        "PRVStakingBalances": [],
+        "ERC20balances": [
+          {
+            "value": "194.629688256154106839",
+            "contract": {
+              "id": "0x069c0ed12db7199c1ddaf73b94de75aae8061d33",
+              "name": "Auxo Active Reward Vault",
+              "symbol": "ARV"
+            }
+          }
+        ]
+      },
+      {
+        "id": "0x5d47e5d242a8f66a6286b0a2353868875f5d6068",
+        "ARVLocks": [
+          {
+            "auxoValue": "109.487970824782553609",
+            "arvValue": "109.487970824782553609",
+            "lockedAt": "1682032199",
+            "lockDuration": "94608000"
+          }
+        ],
+        "PRVStakingBalances": [],
+        "ERC20balances": [
+          {
+            "value": "109.487970824782553609",
+            "contract": {
+              "id": "0x069c0ed12db7199c1ddaf73b94de75aae8061d33",
+              "name": "Auxo Active Reward Vault",
+              "symbol": "ARV"
+            }
+          }
+        ]
+      },
+      {
+        "id": "0x66d0e180af64fb368679f91765affc99174396ac",
+        "ARVLocks": [],
+        "PRVStakingBalances": [
+          {
+            "value": "98.201111270437710495"
+          }
+        ],
+        "ERC20balances": [
+          {
+            "value": "0",
+            "contract": {
+              "id": "0xc72fbd264b40d88e445bcf82663d63ff21e722af",
+              "name": "Auxo Passive Reward Vault",
+              "symbol": "PRV"
+            }
+          }
+        ]
+      },
+      {
+        "id": "0x67017bebe2a4b8645b28f83d5d472618b35a1230",
+        "ARVLocks": [
+          {
+            "auxoValue": "264.960366398672433235",
+            "arvValue": "264.960366398672433235",
+            "lockedAt": "1682231759",
+            "lockDuration": "94608000"
+          }
+        ],
+        "PRVStakingBalances": [],
+        "ERC20balances": [
+          {
+            "value": "264.960366398672433235",
+            "contract": {
+              "id": "0x069c0ed12db7199c1ddaf73b94de75aae8061d33",
+              "name": "Auxo Active Reward Vault",
+              "symbol": "ARV"
+            }
+          }
+        ]
+      },
+      {
+        "id": "0x679a51d6f75ea1bdcd8cb2d3f3e6de4663718cad",
+        "ARVLocks": [
+          {
+            "auxoValue": "2",
+            "arvValue": "2",
+            "lockedAt": "1681904543",
+            "lockDuration": "94608000"
+          }
+        ],
+        "PRVStakingBalances": [],
+        "ERC20balances": [
+          {
+            "value": "2",
+            "contract": {
+              "id": "0x069c0ed12db7199c1ddaf73b94de75aae8061d33",
+              "name": "Auxo Active Reward Vault",
+              "symbol": "ARV"
+            }
+          }
+        ]
+      },
+      {
+        "id": "0x67e326ed4972650fbc9541b81a57ded004f3e4ee",
+        "ARVLocks": [],
+        "PRVStakingBalances": [
+          {
+            "value": "309.59201866765787933"
+          }
+        ],
+        "ERC20balances": []
+      },
+      {
+        "id": "0x6d98f705bdf4ee437b15d0de31a5a1a5e55ea14d",
+        "ARVLocks": [],
+        "PRVStakingBalances": [],
+        "ERC20balances": [
+          {
+            "value": "16.237463632999537733",
+            "contract": {
+              "id": "0xc72fbd264b40d88e445bcf82663d63ff21e722af",
+              "name": "Auxo Passive Reward Vault",
+              "symbol": "PRV"
+            }
+          }
+        ]
+      },
+      {
+        "id": "0x6e09647dd1fb26d8161c06519d5a5e5a323f8e04",
+        "ARVLocks": [],
+        "PRVStakingBalances": [],
+        "ERC20balances": [
+          {
+            "value": "0.065954626947479466",
+            "contract": {
+              "id": "0xc72fbd264b40d88e445bcf82663d63ff21e722af",
+              "name": "Auxo Passive Reward Vault",
+              "symbol": "PRV"
+            }
+          }
+        ]
+      },
+      {
+        "id": "0x6ea484f5cfedc03fe3725d7139e145bdd6e5d320",
+        "ARVLocks": [],
+        "PRVStakingBalances": [],
+        "ERC20balances": [
+          {
+            "value": "58.108907621716637575",
+            "contract": {
+              "id": "0xc72fbd264b40d88e445bcf82663d63ff21e722af",
+              "name": "Auxo Passive Reward Vault",
+              "symbol": "PRV"
+            }
+          }
+        ]
+      },
+      {
+        "id": "0x71f9ccd68bf1f5f9b571f509e0765a04ca4ffad2",
+        "ARVLocks": [
+          {
+            "auxoValue": "4012.43510130615885636",
+            "arvValue": "4012.43510130615885636",
+            "lockedAt": "1682371811",
+            "lockDuration": "94608000"
+          }
+        ],
+        "PRVStakingBalances": [],
+        "ERC20balances": [
+          {
+            "value": "4012.43510130615885636",
+            "contract": {
+              "id": "0x069c0ed12db7199c1ddaf73b94de75aae8061d33",
+              "name": "Auxo Active Reward Vault",
+              "symbol": "ARV"
+            }
+          }
+        ]
+      },
+      {
+        "id": "0x74c4623d7609f3eb2665ad32ff96b44856b6051b",
+        "ARVLocks": [],
+        "PRVStakingBalances": [],
+        "ERC20balances": [
+          {
+            "value": "91.2979991658816",
+            "contract": {
+              "id": "0xc72fbd264b40d88e445bcf82663d63ff21e722af",
+              "name": "Auxo Passive Reward Vault",
+              "symbol": "PRV"
+            }
+          }
+        ]
+      },
+      {
+        "id": "0x76e0266c3c4d2766722a13db031714cb208c922d",
+        "ARVLocks": [],
+        "PRVStakingBalances": [
+          {
+            "value": "14.286405195931130338"
+          }
+        ],
+        "ERC20balances": []
+      },
+      {
+        "id": "0x7917d37a540c6d26ffeebd2da51875ecb2568ea8",
+        "ARVLocks": [],
+        "PRVStakingBalances": [
+          {
+            "value": "107.439786196512857852"
+          }
+        ],
+        "ERC20balances": []
+      },
+      {
+        "id": "0x7b79c37bb80cc76fe6b758c7140228fecc7e2a2e",
+        "ARVLocks": [
+          {
+            "auxoValue": "8.235155235282511791",
+            "arvValue": "8.235155235282511791",
+            "lockedAt": "1681899575",
+            "lockDuration": "94608000"
+          }
+        ],
+        "PRVStakingBalances": [],
+        "ERC20balances": [
+          {
+            "value": "8.235155235282511791",
+            "contract": {
+              "id": "0x069c0ed12db7199c1ddaf73b94de75aae8061d33",
+              "name": "Auxo Active Reward Vault",
+              "symbol": "ARV"
+            }
+          }
+        ]
+      },
+      {
+        "id": "0x7ccf173012bfe53f16f4d6a2a4aea32abafcd04c",
+        "ARVLocks": [
+          {
+            "auxoValue": "3077.125222744984139217",
+            "arvValue": "3077.125222744984139217",
+            "lockedAt": "1682051111",
+            "lockDuration": "94608000"
+          }
+        ],
+        "PRVStakingBalances": [],
+        "ERC20balances": [
+          {
+            "value": "3077.125222744984139217",
+            "contract": {
+              "id": "0x069c0ed12db7199c1ddaf73b94de75aae8061d33",
+              "name": "Auxo Active Reward Vault",
+              "symbol": "ARV"
+            }
+          }
+        ]
+      },
+      {
+        "id": "0x7cfed2a2d4a98680dac6aa55120f5af2ec562ebd",
+        "ARVLocks": [
+          {
+            "auxoValue": "1682.231428874669197313",
+            "arvValue": "1682.231428874669197313",
+            "lockedAt": "1681892363",
+            "lockDuration": "94608000"
+          }
+        ],
+        "PRVStakingBalances": [],
+        "ERC20balances": [
+          {
+            "value": "1682.231428874669197313",
+            "contract": {
+              "id": "0x069c0ed12db7199c1ddaf73b94de75aae8061d33",
+              "name": "Auxo Active Reward Vault",
+              "symbol": "ARV"
+            }
+          }
+        ]
+      },
+      {
+        "id": "0x7dd508a1e4da1243789b799a480f8b45e58b1b5b",
+        "ARVLocks": [
+          {
+            "auxoValue": "30.270662897691907146",
+            "arvValue": "30.270662897691907146",
+            "lockedAt": "1682141279",
+            "lockDuration": "94608000"
+          }
+        ],
+        "PRVStakingBalances": [],
+        "ERC20balances": [
+          {
+            "value": "30.270662897691907146",
+            "contract": {
+              "id": "0x069c0ed12db7199c1ddaf73b94de75aae8061d33",
+              "name": "Auxo Active Reward Vault",
+              "symbol": "ARV"
+            }
+          }
+        ]
+      },
+      {
+        "id": "0x8061199a31983a077e691c08b2263a4cf5c24093",
+        "ARVLocks": [],
+        "PRVStakingBalances": [],
+        "ERC20balances": [
+          {
+            "value": "258.046914457658421422",
+            "contract": {
+              "id": "0xc72fbd264b40d88e445bcf82663d63ff21e722af",
+              "name": "Auxo Passive Reward Vault",
+              "symbol": "PRV"
+            }
+          }
+        ]
+      },
+      {
+        "id": "0x827e0f89ac23fefb2ed69fb5bfabef9429888245",
+        "ARVLocks": [],
+        "PRVStakingBalances": [
+          {
+            "value": "1140.006601874663274101"
+          }
+        ],
+        "ERC20balances": []
+      },
+      {
+        "id": "0x887c3599c4826f7b3cde82003b894430f27d5b92",
+        "ARVLocks": [],
+        "PRVStakingBalances": [],
+        "ERC20balances": [
+          {
+            "value": "262.311914811497068824",
+            "contract": {
+              "id": "0xc72fbd264b40d88e445bcf82663d63ff21e722af",
+              "name": "Auxo Passive Reward Vault",
+              "symbol": "PRV"
+            }
+          }
+        ]
+      },
+      {
+        "id": "0x8e851e94e1667cd76dda1a49f258934e2bcdcf3e",
+        "ARVLocks": [
+          {
+            "auxoValue": "2469.592235516781422951",
+            "arvValue": "2469.592235516781422951",
+            "lockedAt": "1681891535",
+            "lockDuration": "94608000"
+          }
+        ],
+        "PRVStakingBalances": [],
+        "ERC20balances": [
+          {
+            "value": "2469.592235516781422951",
+            "contract": {
+              "id": "0x069c0ed12db7199c1ddaf73b94de75aae8061d33",
+              "name": "Auxo Active Reward Vault",
+              "symbol": "ARV"
+            }
+          }
+        ]
+      },
+      {
+        "id": "0x91b26b4b49525fdffff2b099190149a52a36c3ca",
+        "ARVLocks": [
+          {
+            "auxoValue": "379.705585356500204835",
+            "arvValue": "379.705585356500204835",
+            "lockedAt": "1681916171",
+            "lockDuration": "94608000"
+          }
+        ],
+        "PRVStakingBalances": [],
+        "ERC20balances": [
+          {
+            "value": "379.705585356500204835",
+            "contract": {
+              "id": "0x069c0ed12db7199c1ddaf73b94de75aae8061d33",
+              "name": "Auxo Active Reward Vault",
+              "symbol": "ARV"
+            }
+          }
+        ]
+      },
+      {
+        "id": "0x95adaec801b3e8cb7aa90c6922e23dc987ca2bbf",
+        "ARVLocks": [],
+        "PRVStakingBalances": [
+          {
+            "value": "85.931352716962065385"
+          }
+        ],
+        "ERC20balances": [
+          {
+            "value": "0",
+            "contract": {
+              "id": "0xc72fbd264b40d88e445bcf82663d63ff21e722af",
+              "name": "Auxo Passive Reward Vault",
+              "symbol": "PRV"
+            }
+          }
+        ]
+      },
+      {
+        "id": "0x976dca1615502419b7003a1853e022b023d47cf4",
+        "ARVLocks": [
+          {
+            "auxoValue": "15.034682489753235755",
+            "arvValue": "6.063288963116888486",
+            "lockedAt": "1682023883",
+            "lockDuration": "47304000"
+          }
+        ],
+        "PRVStakingBalances": [],
+        "ERC20balances": [
+          {
+            "value": "6.063288963116888486",
+            "contract": {
+              "id": "0x069c0ed12db7199c1ddaf73b94de75aae8061d33",
+              "name": "Auxo Active Reward Vault",
+              "symbol": "ARV"
+            }
+          }
+        ]
+      },
+      {
+        "id": "0x9fed225115a1374c7f0faef307d471c80fff1893",
+        "ARVLocks": [],
+        "PRVStakingBalances": [
+          {
+            "value": "1964.168051692815048462"
+          }
+        ],
+        "ERC20balances": [
+          {
+            "value": "289.165942397918218213",
+            "contract": {
+              "id": "0xc72fbd264b40d88e445bcf82663d63ff21e722af",
+              "name": "Auxo Passive Reward Vault",
+              "symbol": "PRV"
+            }
+          }
+        ]
+      },
+      {
+        "id": "0xa6d1feda6fc70680816ef6a23faf5e454e2f9c09",
+        "ARVLocks": [],
+        "PRVStakingBalances": [
+          {
+            "value": "153.226375"
+          }
+        ],
+        "ERC20balances": [
+          {
+            "value": "0",
+            "contract": {
+              "id": "0xc72fbd264b40d88e445bcf82663d63ff21e722af",
+              "name": "Auxo Passive Reward Vault",
+              "symbol": "PRV"
+            }
+          }
+        ]
+      },
+      {
+        "id": "0xa742a54e0b9cd1cac03c8f569ba4c606694261f9",
+        "ARVLocks": [],
+        "PRVStakingBalances": [
+          {
+            "value": "2622.136834870727708497"
+          }
+        ],
+        "ERC20balances": [
+          {
+            "value": "0",
+            "contract": {
+              "id": "0xc72fbd264b40d88e445bcf82663d63ff21e722af",
+              "name": "Auxo Passive Reward Vault",
+              "symbol": "PRV"
+            }
+          }
+        ]
+      },
+      {
+        "id": "0xb05136face3f8c6f9e6cdb076a38ee6d4910f6d4",
+        "ARVLocks": [
+          {
+            "auxoValue": "1300",
+            "arvValue": "563.75097614667",
+            "lockedAt": "1681903883",
+            "lockDuration": "49932000"
+          }
+        ],
+        "PRVStakingBalances": [],
+        "ERC20balances": [
+          {
+            "value": "563.75097614667",
+            "contract": {
+              "id": "0x069c0ed12db7199c1ddaf73b94de75aae8061d33",
+              "name": "Auxo Active Reward Vault",
+              "symbol": "ARV"
+            }
+          }
+        ]
+      },
+      {
+        "id": "0xb3a7fbc2fa38c18ad4433ae93fe7f215fd2d057f",
+        "ARVLocks": [
+          {
+            "auxoValue": "38.699992233938569041",
+            "arvValue": "38.699992233938569041",
+            "lockedAt": "1682239643",
+            "lockDuration": "94608000"
+          }
+        ],
+        "PRVStakingBalances": [],
+        "ERC20balances": [
+          {
+            "value": "38.699992233938569041",
+            "contract": {
+              "id": "0x069c0ed12db7199c1ddaf73b94de75aae8061d33",
+              "name": "Auxo Active Reward Vault",
+              "symbol": "ARV"
+            }
+          }
+        ]
+      },
+      {
+        "id": "0xb4367abe9d87c508eceb60c422cbbf8e34aa8dc9",
+        "ARVLocks": [
+          {
+            "auxoValue": "40.32352885398284783",
+            "arvValue": "40.32352885398284783",
+            "lockedAt": "1682307803",
+            "lockDuration": "94608000"
+          }
+        ],
+        "PRVStakingBalances": [],
+        "ERC20balances": [
+          {
+            "value": "40.32352885398284783",
+            "contract": {
+              "id": "0x069c0ed12db7199c1ddaf73b94de75aae8061d33",
+              "name": "Auxo Active Reward Vault",
+              "symbol": "ARV"
+            }
+          }
+        ]
+      },
+      {
+        "id": "0xb478d2e5d241683667e15c9c79a2bc0e5af35923",
+        "ARVLocks": [
+          {
+            "auxoValue": "347.234826217356819352",
+            "arvValue": "347.234826217356819352",
+            "lockedAt": "1682281655",
+            "lockDuration": "94608000"
+          }
+        ],
+        "PRVStakingBalances": [],
+        "ERC20balances": [
+          {
+            "value": "347.234826217356819352",
+            "contract": {
+              "id": "0x069c0ed12db7199c1ddaf73b94de75aae8061d33",
+              "name": "Auxo Active Reward Vault",
+              "symbol": "ARV"
+            }
+          }
+        ]
+      },
+      {
+        "id": "0xbd1bff03034ac340235e48ee35c85b1121b8198e",
+        "ARVLocks": [
+          {
+            "auxoValue": "37.794434945923217597",
+            "arvValue": "37.794434945923217597",
+            "lockedAt": "1682164907",
+            "lockDuration": "94608000"
+          }
+        ],
+        "PRVStakingBalances": [],
+        "ERC20balances": [
+          {
+            "value": "37.794434945923217597",
+            "contract": {
+              "id": "0x069c0ed12db7199c1ddaf73b94de75aae8061d33",
+              "name": "Auxo Active Reward Vault",
+              "symbol": "ARV"
+            }
+          }
+        ]
+      },
+      {
+        "id": "0xc4d6fdea25346267441622feb0e2618544cef228",
+        "ARVLocks": [],
+        "PRVStakingBalances": [
+          {
+            "value": "565.288216268087706601"
+          }
+        ],
+        "ERC20balances": [
+          {
+            "value": "0",
+            "contract": {
+              "id": "0xc72fbd264b40d88e445bcf82663d63ff21e722af",
+              "name": "Auxo Passive Reward Vault",
+              "symbol": "PRV"
+            }
+          }
+        ]
+      },
+      {
+        "id": "0xc72fbd264b40d88e445bcf82663d63ff21e722af",
+        "ARVLocks": [],
+        "PRVStakingBalances": [],
+        "ERC20balances": [
+          {
+            "value": "22483.53257125378882206",
+            "contract": {
+              "id": "0xff030228a046f640143dab19be00009606c89b1d",
+              "name": "Auxo",
+              "symbol": "AUXO"
+            }
+          }
+        ]
+      },
+      {
+        "id": "0xc9b7f801541f88ae2f62c4c0eed29949d057c951",
+        "ARVLocks": [],
+        "PRVStakingBalances": [
+          {
+            "value": "308.690933210382946974"
+          }
+        ],
+        "ERC20balances": [
+          {
+            "value": "0",
+            "contract": {
+              "id": "0xc72fbd264b40d88e445bcf82663d63ff21e722af",
+              "name": "Auxo Passive Reward Vault",
+              "symbol": "PRV"
+            }
+          }
+        ]
+      },
+      {
+        "id": "0xd18a54f89603fe4301b29ef6a8ab11b9ba24f139",
+        "ARVLocks": [],
+        "PRVStakingBalances": [
+          {
+            "value": "10.744005"
+          }
+        ],
+        "ERC20balances": [
+          {
+            "value": "0",
+            "contract": {
+              "id": "0xc72fbd264b40d88e445bcf82663d63ff21e722af",
+              "name": "Auxo Passive Reward Vault",
+              "symbol": "PRV"
+            }
+          }
+        ]
+      },
+      {
+        "id": "0xd384cc029b537503895fe252f94fba87a05d677e",
+        "ARVLocks": [
+          {
+            "auxoValue": "47.072729521391120152",
+            "arvValue": "24.813317212225924882",
+            "lockedAt": "1681982651",
+            "lockDuration": "57816000"
+          }
+        ],
+        "PRVStakingBalances": [],
+        "ERC20balances": [
+          {
+            "value": "24.813317212225924882",
+            "contract": {
+              "id": "0x069c0ed12db7199c1ddaf73b94de75aae8061d33",
+              "name": "Auxo Active Reward Vault",
+              "symbol": "ARV"
+            }
+          }
+        ]
+      },
+      {
+        "id": "0xd5a7412e7f78e03e6fb2bd133f6473bfe8a45eb8",
+        "ARVLocks": [
+          {
+            "auxoValue": "1008.810429400830636885",
+            "arvValue": "1008.810429400830636885",
+            "lockedAt": "1682054987",
+            "lockDuration": "94608000"
+          }
+        ],
+        "PRVStakingBalances": [],
+        "ERC20balances": [
+          {
+            "value": "1008.810429400830636885",
+            "contract": {
+              "id": "0x069c0ed12db7199c1ddaf73b94de75aae8061d33",
+              "name": "Auxo Active Reward Vault",
+              "symbol": "ARV"
+            }
+          }
+        ]
+      },
+      {
+        "id": "0xd6ccb9d49a2ecd78efc35d6c733214029a1c74cb",
+        "ARVLocks": [
+          {
+            "auxoValue": "202.152931051410559936",
+            "arvValue": "202.152931051410559936",
+            "lockedAt": "1682016827",
+            "lockDuration": "94608000"
+          }
+        ],
+        "PRVStakingBalances": [],
+        "ERC20balances": [
+          {
+            "value": "202.152931051410559936",
+            "contract": {
+              "id": "0x069c0ed12db7199c1ddaf73b94de75aae8061d33",
+              "name": "Auxo Active Reward Vault",
+              "symbol": "ARV"
+            }
+          }
+        ]
+      },
+      {
+        "id": "0xdc6b5549763d893b01a41acf0d7d77ccb44f3417",
+        "ARVLocks": [],
+        "PRVStakingBalances": [],
+        "ERC20balances": [
+          {
+            "value": "0.000000000000000053",
+            "contract": {
+              "id": "0xc72fbd264b40d88e445bcf82663d63ff21e722af",
+              "name": "Auxo Passive Reward Vault",
+              "symbol": "PRV"
+            }
+          }
+        ]
+      },
+      {
+        "id": "0xdc6ce98a9020905973c9c026c6f3e34df9998d8a",
+        "ARVLocks": [],
+        "PRVStakingBalances": [],
+        "ERC20balances": [
+          {
+            "value": "795.297813806106080193",
+            "contract": {
+              "id": "0xc72fbd264b40d88e445bcf82663d63ff21e722af",
+              "name": "Auxo Passive Reward Vault",
+              "symbol": "PRV"
+            }
+          }
+        ]
+      },
+      {
+        "id": "0xe5cd86ff7f825a0ff6f699828d5c9bf163c0e3f9",
+        "ARVLocks": [
+          {
+            "auxoValue": "118.844527339026661623",
+            "arvValue": "118.844527339026661623",
+            "lockedAt": "1682239691",
+            "lockDuration": "94608000"
+          }
+        ],
+        "PRVStakingBalances": [],
+        "ERC20balances": [
+          {
+            "value": "118.844527339026661623",
+            "contract": {
+              "id": "0x069c0ed12db7199c1ddaf73b94de75aae8061d33",
+              "name": "Auxo Active Reward Vault",
+              "symbol": "ARV"
+            }
+          }
+        ]
+      },
+      {
+        "id": "0xe5d45fa1b783aa011914486d01f07f724395cc22",
+        "ARVLocks": [],
+        "PRVStakingBalances": [],
+        "ERC20balances": [
+          {
+            "value": "4",
+            "contract": {
+              "id": "0xc72fbd264b40d88e445bcf82663d63ff21e722af",
+              "name": "Auxo Passive Reward Vault",
+              "symbol": "PRV"
+            }
+          }
+        ]
+      },
+      {
+        "id": "0xe89dee662c94ffee76d0942f4a4bad27cc076dd2",
+        "ARVLocks": [],
+        "PRVStakingBalances": [
+          {
+            "value": "5.23014724075565976"
+          }
+        ],
+        "ERC20balances": []
+      },
+      {
+        "id": "0xeb4135a5fff5cd44c08614f012e103a6429f65b3",
+        "ARVLocks": [
+          {
+            "auxoValue": "175.963920387283428194",
+            "arvValue": "76.30756298840458372",
+            "lockedAt": "1681976675",
+            "lockDuration": "1000000000000000000"
+          }
+        ],
+        "PRVStakingBalances": [],
+        "ERC20balances": [
+          {
+            "value": "175.963920387283428194",
+            "contract": {
+              "id": "0x069c0ed12db7199c1ddaf73b94de75aae8061d33",
+              "name": "Auxo Active Reward Vault",
+              "symbol": "ARV"
+            }
+          }
+        ]
+      },
+      {
+        "id": "0xec5c16f3eaf86a801a3e89201dd39bddd1786cbf",
+        "ARVLocks": [],
+        "PRVStakingBalances": [],
+        "ERC20balances": [
+          {
+            "value": "4.645051218822889222",
+            "contract": {
+              "id": "0xc72fbd264b40d88e445bcf82663d63ff21e722af",
+              "name": "Auxo Passive Reward Vault",
+              "symbol": "PRV"
+            }
+          }
+        ]
+      },
+      {
+        "id": "0xedf4fa418216a13e7629fed73e7448985cc8bc82",
+        "ARVLocks": [
+          {
+            "auxoValue": "91.400750754322986054",
+            "arvValue": "91.400750754322986054",
+            "lockedAt": "1681966223",
+            "lockDuration": "94608000"
+          }
+        ],
+        "PRVStakingBalances": [],
+        "ERC20balances": [
+          {
+            "value": "91.400750754322986054",
+            "contract": {
+              "id": "0x069c0ed12db7199c1ddaf73b94de75aae8061d33",
+              "name": "Auxo Active Reward Vault",
+              "symbol": "ARV"
+            }
+          }
+        ]
+      },
+      {
+        "id": "0xeed8e6512ff83092ffe544bd308e94934a113ea0",
+        "ARVLocks": [
+          {
+            "auxoValue": "448.859516199707266654",
+            "arvValue": "448.859516199707266654",
+            "lockedAt": "1682227919",
+            "lockDuration": "94608000"
+          }
+        ],
+        "PRVStakingBalances": [],
+        "ERC20balances": [
+          {
+            "value": "448.859516199707266654",
+            "contract": {
+              "id": "0x069c0ed12db7199c1ddaf73b94de75aae8061d33",
+              "name": "Auxo Active Reward Vault",
+              "symbol": "ARV"
+            }
+          }
+        ]
+      },
+      {
+        "id": "0xefe7a2bbe01adc090ab28ed422a359b553aabc16",
+        "ARVLocks": [],
+        "PRVStakingBalances": [
+          {
+            "value": "178.500165046866581852"
+          }
+        ],
+        "ERC20balances": [
+          {
+            "value": "0",
+            "contract": {
+              "id": "0xc72fbd264b40d88e445bcf82663d63ff21e722af",
+              "name": "Auxo Passive Reward Vault",
+              "symbol": "PRV"
+            }
+          }
+        ]
+      },
+      {
+        "id": "0xf0754756e71aac7ad2b6497e7006f5e44d68d592",
+        "ARVLocks": [
+          {
+            "auxoValue": "960.187111037318410224",
+            "arvValue": "960.187111037318410224",
+            "lockedAt": "1681907735",
+            "lockDuration": "94608000"
+          }
+        ],
+        "PRVStakingBalances": [],
+        "ERC20balances": [
+          {
+            "value": "960.187111037318410224",
+            "contract": {
+              "id": "0x069c0ed12db7199c1ddaf73b94de75aae8061d33",
+              "name": "Auxo Active Reward Vault",
+              "symbol": "ARV"
+            }
+          }
+        ]
+      },
+      {
+        "id": "0xf3dd72ac3c9833574491861793e8ffe1f07c8905",
+        "ARVLocks": [
+          {
+            "auxoValue": "685.899764031157246316",
+            "arvValue": "276.614319716362192936",
+            "lockedAt": "1681948847",
+            "lockDuration": "1000000000000000000"
+          }
+        ],
+        "PRVStakingBalances": [],
+        "ERC20balances": [
+          {
+            "value": "685.899764031157246316",
+            "contract": {
+              "id": "0x069c0ed12db7199c1ddaf73b94de75aae8061d33",
+              "name": "Auxo Active Reward Vault",
+              "symbol": "ARV"
+            }
+          }
+        ]
+      },
+      {
+        "id": "0xfb1d7f6c700a053683f80447b387a891d5f76aac",
+        "ARVLocks": [],
+        "PRVStakingBalances": [
+          {
+            "value": "145.394365286561067019"
+          }
+        ],
+        "ERC20balances": [
+          {
+            "value": "0",
+            "contract": {
+              "id": "0xc72fbd264b40d88e445bcf82663d63ff21e722af",
+              "name": "Auxo Passive Reward Vault",
+              "symbol": "PRV"
+            }
+          }
+        ]
+      },
+      {
+        "id": "0xfb8aa192da69dd3de22a9354ea99538315446c0d",
+        "ARVLocks": [],
+        "PRVStakingBalances": [
+          {
+            "value": "177.030266266147570136"
+          }
+        ],
+        "ERC20balances": []
+      }
+    ]
+  }
+}

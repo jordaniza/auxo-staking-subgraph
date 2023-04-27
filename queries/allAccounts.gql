@@ -1,7 +1,11 @@
 """
+Fetch a list of all accounts with balances of either:
+- Auxo, ARV or PRV in wallet
+- PRV Staked
+- ARV Locked
 Excludes accounts with zero balances, such as pass-through smart contracts
 """
-query NonZeroAccounts {
+query AllAccounts {
   accounts(
     where: {
       or: [

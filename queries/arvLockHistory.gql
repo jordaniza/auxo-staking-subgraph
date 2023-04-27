@@ -1,0 +1,65 @@
+"""
+Fetch all locks for the Token Locker, along with all the constituent events
+"""
+query ARVLockHistory {
+  tokenLockerContract(id: "0x3E70FF09C8f53294FFd389a7fcF7276CC3d92e64")  {
+    locks{
+      account {
+        id
+      }
+      auxoValue
+      arvValue
+      lockedAt
+      lockDuration
+      deposits {
+        amount
+        timestamp
+        transaction {
+          id
+        }
+      }
+      increaseAmounts {
+        amount
+        timestamp
+        transaction {
+          id
+        }
+      }
+      increaseDurations {
+        amount
+        timestamp
+        transaction {
+          id
+        }
+      }
+      boosts {
+        amount
+        timestamp
+        transaction {
+          id
+        }
+      }
+      withdraws {
+        amount
+        timestamp
+        transaction {
+          id
+        }
+      }
+      exits {
+        amount
+        timestamp
+        transaction {
+          id
+        }
+      }
+      ejects {
+        amount
+        timestamp
+        transaction {
+          id
+        }
+      }
+    }
+  }
+}
