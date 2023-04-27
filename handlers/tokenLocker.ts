@@ -1,5 +1,6 @@
-import { Address } from "@graphprotocol/graph-ts";
-import { constants, decimals, events, transactions } from "@amxx/graphprotocol-utils";
+import { Address, BigInt } from "@graphprotocol/graph-ts";
+import { constants, decimals } from "@amxx/graphprotocol-utils";
+import { events, transactions } from "./wrappers/amxx";
 import {
   Deposited as DepositEvent,
   Withdrawn as WithdrawEvent,
@@ -16,7 +17,7 @@ import { fetchERC20 } from "./fetch/erc20";
 import { fetchAccount } from "./fetch/account";
 import { ARVWithdrawal } from "../generated/schema";
 import { ARVBoostToMax } from "../generated/schema";
-import { getARVValue, maxRatioArray } from "./tokenLocker.utils";
+import { MAX_LOCK_DURATION, getARVValue, maxRatioArray } from "./tokenLocker.utils";
 
 export function handleDeposited(event: DepositEvent): void {
   let ev = new ARVDeposit(events.id(event));
@@ -139,16 +140,15 @@ export function handleBoostedToMax(event: BoostedToMaxEvent): void {
   ev.owner = account.id;
 
   let lock = fetchARVLock(contract, account);
-  let maxLockDuration = maxRatioArray[maxRatioArray.length - 1];
 
   // if the lock duration is not the max, then we need to update the arv value
-  if (lock.lockDuration !== maxLockDuration) {
+  if (lock.lockDuration !== MAX_LOCK_DURATION) {
+    // duration will now be max
+    lock.lockDuration = MAX_LOCK_DURATION;
+
     // take the new arv value based on the new lock duration
     lock.arvValueExact = getARVValue(lock.auxoValueExact, lock.lockDuration);
     lock.arvValue = decimals.toDecimals(lock.arvValueExact, arv.decimals);
-
-    // duration will now be max
-    lock.lockDuration = maxLockDuration;
   }
 
   // reset the lock
@@ -182,6 +182,8 @@ export function handleIncreasedDuration(event: IncreasedDurationEvent): void {
 
   // get the new arv value based on the new lock duration
   lock.arvValueExact = getARVValue(lock.auxoValueExact, event.params.lockDuration);
+  lock.arvValue = decimals.toDecimals(lock.arvValueExact, arv.decimals);
+  lock.lockDuration = event.params.lockDuration;
 
   lock.save();
   ev.lock = lock.id;

@@ -41,6 +41,7 @@ export const maxRatioArray = [
 ];
 
 export const AVG_SECONDS_MONTH = BigInt.fromI32(2628000);
+export const MAX_LOCK_DURATION = BigInt.fromI32(36).times(AVG_SECONDS_MONTH);
 export const ONE_ETHER = BigInt.fromString("1000000000000000000");
 
 export function getARVValue(amount: BigInt, duration: BigInt): BigInt {

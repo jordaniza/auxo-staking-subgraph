@@ -15,7 +15,11 @@ It heavily derives from the [OpenZeppelin Subgraphs](https://docs.openzeppelin.c
 - [x] ERC20 Token Approvals for ARV, PRV and Auxo Tokens
 - [x] PRV RollStaker Integration
 - [x] ARV Locker Integration
-- [ ] Local testing
+- [ ] testing
+  - [x] Matchstick Locker (except eject)
+  - [ ] Matchstick Locker (eject)
+  - [ ] Matchstick Rollstaker
+  - [ ] Integration Balances
 - [ ] Support for pending PRV Stakes
   - [ ] Show epochDeposited vs. epoch active
   - [ ] Show balances by epoch
