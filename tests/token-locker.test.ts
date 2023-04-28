@@ -5,12 +5,14 @@ import {
   handleBoostedToMax,
   handleDeposited,
   handleEarlyExit,
+  handleEjected,
   handleIncreasedAmount,
   handleIncreasedDuration,
   handleWithdrawn,
 } from "../handlers/tokenLocker";
 import { AVG_SECONDS_MONTH } from "../handlers/tokenLocker.utils";
 import { constants } from "@amxx/graphprotocol-utils";
+
 import {
   createDepositedEvent,
   createBoostToMaxEvent,
@@ -18,6 +20,7 @@ import {
   createIncreaseDurationEvent,
   createTerminateEarlyEvent,
   createWithdrawnEvent,
+  createEjectEvent,
 } from "./token-locker.helpers";
 
 // 0xa16081f360e3847006db660bae1c6d1b2e17ec2a is the default address used in newMockEvent() function
@@ -68,7 +71,7 @@ describe("Locks Correctly Update in the tokenLocker Events", () => {
     clearStore();
   });
 
-  test("Locks", () => {
+  test("Locks lifecycle", () => {
     let amount = Num(100);
     let amountChange = Num(50);
     let total = Num(150);
@@ -160,6 +163,35 @@ describe("Locks Correctly Update in the tokenLocker Events", () => {
 
     assert.entityCount("ARVLock", 1);
     assert.entityCount("ARVEarlyExit", 1);
+
+    assert.fieldEquals("ARVLock", lockId, "auxoValueExact", constants.BIGINT_ZERO.toString());
+    assert.fieldEquals("ARVLock", lockId, "auxoValue", constants.BIGINT_ZERO.toString());
+    assert.fieldEquals("ARVLock", lockId, "lockedAt", constants.BIGINT_ZERO.toString());
+    assert.fieldEquals("ARVLock", lockId, "lockDuration", constants.BIGINT_ZERO.toString());
+    assert.fieldEquals("ARVLock", lockId, "arvValueExact", constants.BIGINT_ZERO.toString());
+    assert.fieldEquals("ARVLock", lockId, "arvValue", constants.BIGINT_ZERO.toString());
+  });
+
+  test("Eject", () => {
+    let amount = Num(100);
+    let owner = Address.fromString("0x0000000000000000000000000000000000000001");
+    let months = BigInt.fromI32(24);
+    let lockDuration = months.times(AVG_SECONDS_MONTH);
+    let lockId = MOCK_ADDRESS.toHex().concat("/").concat(owner.toHex());
+
+    // define the events
+    let depositEvent = createDepositedEvent(amount.exact, lockDuration, owner);
+    let ejectEvent = createEjectEvent(amount.exact, owner);
+
+    // deposit
+    handleDeposited(depositEvent);
+    assert.entityCount("ARVDeposit", 1);
+    assert.entityCount("ARVLock", 1);
+
+    // eject
+    handleEjected(ejectEvent);
+    assert.entityCount("ARVLock", 1);
+    assert.entityCount("ARVEject", 1);
 
     assert.fieldEquals("ARVLock", lockId, "auxoValueExact", constants.BIGINT_ZERO.toString());
     assert.fieldEquals("ARVLock", lockId, "auxoValue", constants.BIGINT_ZERO.toString());

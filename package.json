@@ -5,9 +5,9 @@
     "@openzeppelin/subgraphs": "^0.1.8-5"
   },
   "scripts": {
-    "build": "./build.sh",
-    "deploy": "yarn build && graph deploy --product hosted-service jordaniza/pqr-auxo",
-    "test": "graph test -v 0.5.4"
+    "build": "./schema/build.sh",
+    "test": "graph test --recompile --version 0.5.4",
+    "deploy": "yarn build && graph deploy --product hosted-service jordaniza/auxo-staking"
   },
   "devDependencies": {
     "matchstick-as": "^0.5.2"
