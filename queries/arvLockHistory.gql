@@ -13,6 +13,7 @@ query ARVLockHistory {
       lockDuration
       deposits {
         amount
+        arvMinted
         timestamp
         transaction {
           id
@@ -20,6 +21,7 @@ query ARVLockHistory {
       }
       increaseAmounts {
         amount
+        arvMinted
         timestamp
         transaction {
           id
@@ -27,6 +29,7 @@ query ARVLockHistory {
       }
       increaseDurations {
         amount
+        arvMinted
         timestamp
         transaction {
           id
@@ -34,6 +37,7 @@ query ARVLockHistory {
       }
       boosts {
         amount
+        arvMinted        
         timestamp
         transaction {
           id
