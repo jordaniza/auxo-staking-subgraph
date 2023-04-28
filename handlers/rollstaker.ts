@@ -1,18 +1,13 @@
 import { Address, BigDecimal, BigInt } from "@graphprotocol/graph-ts";
-
+import { decimals } from "@amxx/graphprotocol-utils";
 import { PRVDeposit, PRVExit, PRVWithdraw } from "../generated/schema";
-
 import {
   Deposited as DepositEvent,
   Withdrawn as WithdrawEvent,
   Exited as ExitEvent,
 } from "../generated/RollStaker/IRollStaker";
-
-import { decimals } from "@amxx/graphprotocol-utils";
 import { events, transactions } from "./wrappers/amxx";
-
 import { fetchAccount } from "./fetch/account";
-
 import { fetchRollStaker, fetchPRVStakingBalance } from "./fetch/rollstaker";
 import { fetchERC20 } from "./fetch/erc20";
 

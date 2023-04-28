@@ -1,14 +1,10 @@
 import { Address } from "@graphprotocol/graph-ts";
-
+import { decimals } from "@amxx/graphprotocol-utils";
 import { ERC20Transfer } from "../generated/schema";
-
 import { Transfer as TransferEvent, Approval as ApprovalEvent } from "../generated/Auxo/IERC20";
-
-import { decimals, events, transactions } from "@amxx/graphprotocol-utils";
-
 import { fetchAccount } from "./fetch/account";
-
 import { fetchERC20, fetchERC20Balance, fetchERC20Approval } from "./fetch/erc20";
+import { events, transactions } from "./wrappers/amxx";
 
 export function handleTransfer(event: TransferEvent): void {
   let contract = fetchERC20(event.address);
