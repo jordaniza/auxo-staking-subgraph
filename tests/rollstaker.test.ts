@@ -2,7 +2,7 @@ import { assert, describe, test, clearStore, beforeAll, afterEach } from "matchs
 import { createMockedFunction } from "matchstick-as";
 import { BigInt, Address, ethereum } from "@graphprotocol/graph-ts";
 import { handleDeposit, handleExit, handleWithdraw } from "../handlers/rollstaker";
-import { constants } from "@amxx/graphprotocol-utils";
+import { constants, decimals } from "@amxx/graphprotocol-utils";
 import { createDepositedEvent, createExitEvent, createWithdrawnEvent } from "./rollstaker.helpers";
 
 // 0xa16081f360e3847006db660bae1c6d1b2e17ec2a is the default address used in newMockEvent() function
@@ -76,11 +76,16 @@ describe("RollStaker Balances Correctly Update", () => {
   });
 
   test("Deposits", () => {
+    let depositId = firstDepositEvent.block.number.toString().concat("-").concat(exitEvent.logIndex.toString());
+
     handleDeposit(firstDepositEvent);
 
     // check the events logged
     assert.entityCount("PRVDeposit", 1);
     assert.entityCount("PRVStakingBalance", 1);
+
+    assert.fieldEquals("PRVDeposit", depositId, "epochDepositedAt", (firstDepositEvent.params.epoch - 1).toString());
+    assert.fieldEquals("PRVDeposit", depositId, "epochActiveFrom", firstDepositEvent.params.epoch.toString());
 
     assert.fieldEquals("PRVStakingBalance", balanceId, "valueExact", depositValue.exact.toString());
     assert.fieldEquals("PRVStakingBalance", balanceId, "value", depositValue.val.toString());
@@ -112,12 +117,17 @@ describe("RollStaker Balances Correctly Update", () => {
   });
 
   test("Exits", () => {
+    let exitId = exitEvent.block.number.toString().concat("-").concat(exitEvent.logIndex.toString());
+
     handleDeposit(firstDepositEvent);
     handleExit(exitEvent);
 
     assert.entityCount("PRVDeposit", 1);
     assert.entityCount("PRVExit", 1);
     assert.entityCount("PRVStakingBalance", 1);
+
+    assert.fieldEquals("PRVExit", exitId, "valueExact", firstDepositEvent.params.amount.toString());
+    assert.fieldEquals("PRVExit", exitId, "value", decimals.toDecimals(firstDepositEvent.params.amount).toString());
 
     assert.fieldEquals("PRVStakingBalance", balanceId, "valueExact", constants.BIGINT_ZERO.toString());
     assert.fieldEquals("PRVStakingBalance", balanceId, "value", constants.BIGINT_ZERO.toString());

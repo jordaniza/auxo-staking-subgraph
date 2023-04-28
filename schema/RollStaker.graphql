@@ -33,7 +33,8 @@ type PRVDeposit implements Event @entity(immutable: true) {
   depositor: Account!
   receiver: Account!
   receiverBalance: PRVStakingBalance
-  epoch: Int!
+  epochDepositedAt: Int!
+  epochActiveFrom: Int!
   value: BigDecimal!
   valueExact: BigInt!
 }
@@ -59,5 +60,7 @@ type PRVExit implements Event @entity(immutable: true) {
   contract: RollStakerContract!
   receiver: Account!
   receiverBalance: PRVStakingBalance!
+  value: BigDecimal!
+  valueExact: BigInt!
   epoch: Int!
 }

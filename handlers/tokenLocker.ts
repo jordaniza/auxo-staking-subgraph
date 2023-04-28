@@ -51,6 +51,8 @@ export function handleDeposited(event: DepositEvent): void {
   lock.save();
 
   ev.lock = lock.id;
+  ev.arvMintedExact = lock.arvValueExact;
+  ev.arvMinted = lock.arvValue;
 
   ev.save();
 }
@@ -78,6 +80,9 @@ export function handleIncreasedAmount(event: IncreasedAmountEvent): void {
   lock.auxoValueExact = lock.auxoValueExact.plus(event.params.amount);
   lock.auxoValue = decimals.toDecimals(lock.auxoValueExact, arv.decimals);
 
+  // save the old value
+  let oldArvValueExact = lock.arvValueExact;
+
   // take the new arv value based on the new auxo value
   lock.arvValueExact = getARVValue(lock.auxoValueExact, lock.lockDuration);
   lock.arvValue = decimals.toDecimals(lock.arvValueExact, arv.decimals);
@@ -86,7 +91,50 @@ export function handleIncreasedAmount(event: IncreasedAmountEvent): void {
   lock.lockedAt = event.block.timestamp;
 
   lock.save();
+
+  // save the lock and record ARV minted
   ev.lock = lock.id;
+  ev.arvMintedExact = lock.arvValueExact.minus(oldArvValueExact);
+  ev.arvMinted = decimals.toDecimals(ev.arvMintedExact, arv.decimals);
+
+  ev.save();
+}
+
+export function handleIncreasedDuration(event: IncreasedDurationEvent): void {
+  let ev = new ARVIncreaseDuration(events.id(event));
+
+  let contract = fetchTokenLocker(event.address);
+  let arv = fetchERC20(Address.fromBytes(contract.veToken));
+
+  ev.emitter = contract.id;
+  ev.contract = contract.id;
+  ev.transaction = transactions.log(event).id;
+  ev.timestamp = event.block.timestamp;
+
+  ev.amount = decimals.toDecimals(event.params.amount, arv.decimals);
+  ev.amountExact = event.params.amount;
+  ev.lockDuration = event.params.lockDuration;
+  ev.lockedAt = event.params.lockedAt;
+
+  let account = fetchAccount(event.params.owner);
+  ev.owner = account.id;
+
+  let lock = fetchARVLock(contract, account);
+
+  // save the old value
+  let oldArvValueExact = lock.arvValueExact;
+
+  // get the new arv value based on the new lock duration
+  lock.arvValueExact = getARVValue(lock.auxoValueExact, event.params.lockDuration);
+  lock.arvValue = decimals.toDecimals(lock.arvValueExact, arv.decimals);
+  lock.lockDuration = event.params.lockDuration;
+
+  lock.save();
+
+  ev.lock = lock.id;
+  ev.arvMintedExact = lock.arvValueExact.minus(oldArvValueExact);
+  ev.arvMinted = decimals.toDecimals(ev.arvMintedExact, arv.decimals);
+
   ev.save();
 }
 
@@ -141,6 +189,9 @@ export function handleBoostedToMax(event: BoostedToMaxEvent): void {
 
   let lock = fetchARVLock(contract, account);
 
+  // save the old value
+  let oldArvValueExact = lock.arvValueExact;
+
   // if the lock duration is not the max, then we need to update the arv value
   if (lock.lockDuration !== MAX_LOCK_DURATION) {
     // duration will now be max
@@ -155,38 +206,11 @@ export function handleBoostedToMax(event: BoostedToMaxEvent): void {
   lock.lockedAt = event.block.timestamp;
 
   lock.save();
+
   ev.lock = lock.id;
-  ev.save();
-}
+  ev.arvMintedExact = lock.arvValueExact.minus(oldArvValueExact);
+  ev.arvMinted = decimals.toDecimals(ev.arvMintedExact, arv.decimals);
 
-export function handleIncreasedDuration(event: IncreasedDurationEvent): void {
-  let ev = new ARVIncreaseDuration(events.id(event));
-
-  let contract = fetchTokenLocker(event.address);
-  let arv = fetchERC20(Address.fromBytes(contract.veToken));
-
-  ev.emitter = contract.id;
-  ev.contract = contract.id;
-  ev.transaction = transactions.log(event).id;
-  ev.timestamp = event.block.timestamp;
-
-  ev.amount = decimals.toDecimals(event.params.amount, arv.decimals);
-  ev.amountExact = event.params.amount;
-  ev.lockDuration = event.params.lockDuration;
-  ev.lockedAt = event.params.lockedAt;
-
-  let account = fetchAccount(event.params.owner);
-  ev.owner = account.id;
-
-  let lock = fetchARVLock(contract, account);
-
-  // get the new arv value based on the new lock duration
-  lock.arvValueExact = getARVValue(lock.auxoValueExact, event.params.lockDuration);
-  lock.arvValue = decimals.toDecimals(lock.arvValueExact, arv.decimals);
-  lock.lockDuration = event.params.lockDuration;
-
-  lock.save();
-  ev.lock = lock.id;
   ev.save();
 }
 

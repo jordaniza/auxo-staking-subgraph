@@ -11,6 +11,5 @@
     "resolveJsonModule": true
   },
   "ts-node": { "esm": true },
-  "exclude": ["node_modules"],
-  "include": ["./scripts/**/*"]
+  "exclude": ["node_modules"]
 }

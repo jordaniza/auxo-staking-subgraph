@@ -125,7 +125,8 @@ type PRVDeposit implements Event @entity(immutable: true) {
   depositor: Account!
   receiver: Account!
   receiverBalance: PRVStakingBalance
-  epoch: Int!
+  epochDepositedAt: Int!
+  epochActiveFrom: Int!
   value: BigDecimal!
   valueExact: BigInt!
 }
@@ -151,6 +152,8 @@ type PRVExit implements Event @entity(immutable: true) {
   contract: RollStakerContract!
   receiver: Account!
   receiverBalance: PRVStakingBalance!
+  value: BigDecimal!
+  valueExact: BigInt!
   epoch: Int!
 }
 
@@ -158,9 +161,7 @@ type TokenLockerContract @entity(immutable: true) {
   id: Bytes!
   asAccount: Account!
   veToken: ERC20Contract!
-
   locks: [ARVLock!]! @derivedFrom(field: "contract")
-
   deposits: [ARVDeposit!]! @derivedFrom(field: "contract")
   boosts: [ARVBoostToMax!]! @derivedFrom(field: "contract")
   increaseAmounts: [ARVIncreaseAmount!]! @derivedFrom(field: "contract")
@@ -178,18 +179,12 @@ type ARVLock @entity {
   id: ID!
   contract: TokenLockerContract!
   account: Account
-
   auxoValue: BigDecimal!
   auxoValueExact: BigInt!
-
   arvValue: BigDecimal!
   arvValueExact: BigInt!
-
-  # todo decayed amount
-
   lockedAt: BigInt!
   lockDuration: BigInt!
-
   deposits: [ARVDeposit!]! @derivedFrom(field: "lock")
   boosts: [ARVBoostToMax!]! @derivedFrom(field: "lock")
   increaseAmounts: [ARVIncreaseAmount!]! @derivedFrom(field: "lock")
@@ -210,6 +205,8 @@ type ARVDeposit implements Event @entity(immutable: true) {
   amountExact: BigInt!
   lockDuration: BigInt!
   lock: ARVLock!
+  arvMinted: BigDecimal!
+  arvMintedExact: BigInt!
 }
 
 type ARVBoostToMax implements Event @entity(immutable: true) {
@@ -222,6 +219,8 @@ type ARVBoostToMax implements Event @entity(immutable: true) {
   amount: BigDecimal!
   amountExact: BigInt!
   lock: ARVLock!
+  arvMinted: BigDecimal!
+  arvMintedExact: BigInt!
 }
 
 type ARVIncreaseAmount implements Event @entity(immutable: true) {
@@ -234,6 +233,8 @@ type ARVIncreaseAmount implements Event @entity(immutable: true) {
   amount: BigDecimal!
   amountExact: BigInt!
   lock: ARVLock!
+  arvMinted: BigDecimal!
+  arvMintedExact: BigInt!
 }
 
 type ARVIncreaseDuration implements Event @entity(immutable: true) {
@@ -248,6 +249,8 @@ type ARVIncreaseDuration implements Event @entity(immutable: true) {
   lockDuration: BigInt!
   lockedAt: BigInt!
   lock: ARVLock!
+  arvMinted: BigDecimal!
+  arvMintedExact: BigInt!
 }
 
 type ARVWithdrawal implements Event @entity(immutable: true) {

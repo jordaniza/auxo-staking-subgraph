@@ -15,10 +15,11 @@
   "type": "module",
   "scripts": {
     "build": "./schema/build.sh",
-    "test": "graph test --recompile --version 0.5.4",
-    "coverage": "graph test --coverage --version 0.5.4",
+    "test": "yarn build && graph test --recompile --version 0.5.4",
+    "test:quick": "graph test --version 0.5.4",
+    "coverage": "yarn build && graph test --coverage --version 0.5.4",
     "deploy": "yarn build && graph deploy --product hosted-service jordaniza/auxo-staking",
-    "validate": "yarn types && yarn ts-node scripts/validateHistoricalBalances.mts"
+    "validate": "yarn ts-node scripts/validateHistoricalBalances.mts"
   },
   "devDependencies": {
     "matchstick-as": "^0.5.2"

@@ -27,7 +27,8 @@ export function handleDeposit(event: DepositEvent): void {
   ev.transaction = transactions.log(event).id;
   ev.timestamp = event.block.timestamp;
 
-  ev.epoch = event.params.epoch;
+  ev.epochDepositedAt = event.params.epoch - 1;
+  ev.epochActiveFrom = event.params.epoch;
   ev.depositor = fetchAccount(event.params.depositor).id;
 
   ev.value = decimals.toDecimals(event.params.amount, prv.decimals);
@@ -86,11 +87,16 @@ export function handleExit(event: ExitEvent): void {
   let account = fetchAccount(event.params.depositor);
   let balance = fetchPRVStakingBalance(contract, account);
 
-  balance.valueExact = BigInt.fromString("0");
-  balance.value = BigDecimal.fromString("0");
-  balance.save();
-
+  // copy balance into event
   ev.receiver = account.id;
   ev.receiverBalance = balance.id;
+  ev.value = balance.value;
+  ev.valueExact = balance.valueExact;
+
+  // set the balance to zero
+  balance.valueExact = BigInt.fromString("0");
+  balance.value = BigDecimal.fromString("0");
+
+  balance.save();
   ev.save();
 }
