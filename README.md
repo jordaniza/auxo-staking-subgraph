@@ -29,20 +29,53 @@ Some results are saved in the [results](./queries/results) folder, these can be 
 
 Visit https://api.thegraph.com/subgraphs/name/jordaniza/auxo-staking/graphql to query the subgraph, this can also be found in the [Subgraphs section of the docs](https://docs.auxo.fi/auxo-docs/developers/subgraphs)
 
-## Features
+## Docs
 
-- [x] ERC20 Token Balances for ARV, PRV and Auxo Tokens
-- [x] ERC20 Token Approvals for ARV, PRV and Auxo Tokens
-- [x] PRV RollStaker Integration
-- [x] ARV Locker Integration
-- [x] testing
-  - [x] Matchstick Locker (except eject)
-  - [x] Matchstick Locker (eject)
-  - [x] Matchstick Rollstaker
-  - [x] Integration Balances
-- [x] Support for pending PRV Stakes
-  - [x] Show balances by epoch
-  - [x] Add value for exit event
-- [ ] Data/Lifecycle modelling
-- [x] ARV Improvements
-  - [x] Show the amount of ARV emitted in the event
+### ERC20 Event Lifecycle
+
+Please refer to the OpenZeppelin subgraph as the flow is lifted entirely from their implementation.
+
+### ARV Event Lifecycle
+
+Throughout this lifecycle, smart contract events trigger the creation of corresponding entities in the GraphQL schema to capture snapshots of the changes in the user's locked tokens and lock duration. The `ARVLock` entity keeps a running total of the locked tokens and the remaining lock time for each user's account.
+
+1. **Deposited (Smart Contract Event):**
+   When a user deposits tokens into the locker, the `Deposit` event is emitted by the smart contract. This event triggers the creation of the `ARVDeposit` entity in the GraphQL schema, logging a snapshot of the delta, including the user's account address, the amount of tokens deposited, the amount of ARV minted, the lock duration, and the timestamp of the deposit.
+
+2. **ARVLock (GraphQL Entity):**
+   After the deposit, an `ARVLock` entity is created or updated with the deposit information. It stores the running total of the locked amount, remaining lock time, and other lock-related information for the user's account.
+
+3. **IncreasedAmount (Smart Contract Event):**
+   If the user decides to increase the amount of tokens locked, the `IncreaseAmount` event is emitted by the smart contract. This event triggers the creation of the `ARVIncreaseAmount` entity in the GraphQL schema, logging the account address, the additional amount of tokens (deposited and minted), and the timestamp of the change.
+
+4. **ARVLock (GraphQL Entity):**
+   The associated `ARVLock` entity is updated with the new total locked amount after the user increases their locked tokens.
+
+5. **IncreasedDuration (Smart Contract Event):**
+   If the user wants to extend the lock duration, the `IncreaseDuration` event is emitted by the smart contract. This event triggers the creation of the `ARVIncreaseDuration` entity in the GraphQL schema, logging the account address, the additional lock time, and the timestamp of the change, along with any additional tokens and minted.
+
+6. **ARVLock (GraphQL Entity):**
+   The corresponding `ARVLock` entity is updated with the new lock duration when the user extends the duration.
+
+7. **Withdrawn, BoostedToMax, Ejected, EarlyExit (Smart Contract Events):**
+   When the user withdraws tokens, boosts their lock to the maximum ratio, gets ejected, or exits early, respective events are emitted by the smart contract. Each event triggers the creation of the corresponding `ARVWithdrawal`, `ARVBoostToMax`, `ARVEject`, or `ARVEarlyExit` entity in the GraphQL schema, logging the relevant details about the user's account, the amount of tokens affected, and the timestamp of the action.
+
+8. **ARVLock (GraphQL Entity):**
+   After any of the above events (withdrawal, boost to max, ejection, or early exit), the `ARVLock` entity is updated to reflect the new state of the user's locked tokens, including the remaining lock time and the updated token amount. Ejected or EarlyExit will reset the lock to zero.
+
+### RollStaker Event Lifecylce
+
+1. **Deposited (Smart Contract Event):**
+   When a user deposits tokens in the RollStaker contract, the `DepositEvent` is emitted by the smart contract. This event triggers the creation of the `PRVDeposit` entity in the GraphQL schema, logging information such as the depositor, receiver, amount, and timestamps.
+
+2. **PRVStakingBalance (GraphQL Entity):**
+   After the deposit, an `PRVStakingBalance` entity is created or updated with the deposit information. It stores the running total of the staked amount.
+
+3. **Withdrawn (Smart Contract Event):**
+   When a user withdraws tokens from the RollStaker contract, the `WithdrawEvent` is emitted by the smart contract. This event triggers the creation of the `PRVWithdraw` entity in the GraphQL schema, logging the receiver, amount, timestamp, and other relevant data.
+
+4. **Exited (Smart Contract Event):**
+   When a user exits the RollStaker contract, the `ExitEvent` is emitted by the smart contract. This event triggers the creation of the `PRVExit` entity in the GraphQL schema, logging the receiver, amount, timestamp, and other pertinent information.
+
+5. **PRVStakingBalance (GraphQL Entity):**
+   After any of the above events (withdrawal or exit), the `PRVStakingBalance` entity is updated to reflect the new state of the user's staked tokens.Exiting will reset the balance to zero.
