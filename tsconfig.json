@@ -1,6 +1,16 @@
 {
   "compilerOptions": {
-    "types": ["./types/*.d.ts"]
+    "types": ["./types/*.d.ts"],
+    "noImplicitAny": true,
+    "esModuleInterop": true,
+    "moduleResolution": "node",
+    "module": "es2020",
+    "target": "es2020",
+    "allowSyntheticDefaultImports": true,
+    "skipLibCheck": true,
+    "resolveJsonModule": true
   },
-  "exclude": ["node_modules"]
+  "ts-node": { "esm": true },
+  "exclude": ["node_modules"],
+  "include": ["./scripts/**/*"]
 }
