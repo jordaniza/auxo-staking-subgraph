@@ -77,8 +77,8 @@ async function historicalPRVGraph(blockTag: number): Promise<ERC20BalancesGraphR
 }
 
 // fetch user's balance from the graph
-const graphBalance = (data: ERC20BalancesGraphResult, account: string) =>
-  data.data.erc20Balances.find((b) => b.account.id === account)?.valueExact ?? "0";
+const graphBalance = ({ data }: ERC20BalancesGraphResult, account: string) =>
+  data.erc20Balances.find((b) => b.account.id === account)?.valueExact ?? "0";
 
 // fetch user's balance onchain
 const chainBalance = (data: MulticallReturn, account: string) =>
