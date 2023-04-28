@@ -21,7 +21,7 @@ import {
   createTerminateEarlyEvent,
   createWithdrawnEvent,
   createEjectEvent,
-} from "./token-locker.helpers";
+} from "./tokenLocker.helpers";
 
 // 0xa16081f360e3847006db660bae1c6d1b2e17ec2a is the default address used in newMockEvent() function
 let MOCK_ADDRESS = Address.fromString("0xa16081f360e3847006db660bae1c6d1b2e17ec2a");

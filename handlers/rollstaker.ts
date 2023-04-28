@@ -8,7 +8,8 @@ import {
   Exited as ExitEvent,
 } from "../generated/RollStaker/IRollStaker";
 
-import { decimals, events, transactions } from "@amxx/graphprotocol-utils";
+import { decimals } from "@amxx/graphprotocol-utils";
+import { events, transactions } from "./wrappers/amxx";
 
 import { fetchAccount } from "./fetch/account";
 
