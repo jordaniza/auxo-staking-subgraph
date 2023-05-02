@@ -30,22 +30,24 @@ dataSources:
     network: mainnet
     source:
       address: "0x069c0Ed12dB7199c1DdAF73b94de75AAe8061d33"
-      abi: IERC20
+      abi: IERC20Delegation
       startBlock: 17040200
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.6
       language: wasm/assemblyscript
       entities:
-        - ERC20Contract
+        - ERC20Delegation
       abis:
-        - name: IERC20
-          file: ./abis/ERC20.json
+        - name: IERC20Delegation
+          file: ./abis/ERC20Delegation.json
       eventHandlers:
         - event: Transfer(indexed address,indexed address,uint256)
           handler: handleTransfer
         - event: Approval(indexed address,indexed address,uint256)
           handler: handleApproval
+        - event: DelegateChanged(indexed address,indexed address,indexed address)
+          handler: handleDelegateChanged
       file: ./handlers/erc20.ts
 
   - kind: ethereum/contract

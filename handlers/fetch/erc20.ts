@@ -1,6 +1,13 @@
 import { Address } from "@graphprotocol/graph-ts";
 
-import { Account, ERC20Contract, ERC20Balance, ERC20Approval } from "../../generated/schema";
+import {
+  Account,
+  ERC20Contract,
+  ERC20Balance,
+  ERC20Approval,
+  ERC20Delegation,
+  DelegationStatus,
+} from "../../generated/schema";
 
 import { IERC20 } from "../../generated/Auxo/IERC20";
 
@@ -15,14 +22,13 @@ export function fetchERC20(address: Address): ERC20Contract {
     let endpoint = IERC20.bind(address);
     let name = endpoint.try_name();
     let symbol = endpoint.try_symbol();
-    // let decimals = endpoint.try_decimals();
+    let decimals = endpoint.try_decimals();
 
     // Common
     contract = new ERC20Contract(address);
     contract.name = name.reverted ? null : name.value;
     contract.symbol = symbol.reverted ? null : symbol.value;
-    // contract.decimals = decimals.reverted ? 18 : decimals.value;
-    contract.decimals = 18;
+    contract.decimals = decimals.reverted ? 18 : decimals.value;
     contract.totalSupply = fetchERC20Balance(contract as ERC20Contract, null).id;
     contract.asAccount = address;
     contract.save();
@@ -35,7 +41,66 @@ export function fetchERC20(address: Address): ERC20Contract {
   return contract as ERC20Contract;
 }
 
+export function fetchERC20Delegation(address: Address): ERC20Delegation {
+  let contract = ERC20Delegation.load(address);
+
+  if (contract == null) {
+    let endpoint = IERC20.bind(address);
+    let name = endpoint.try_name();
+    let symbol = endpoint.try_symbol();
+    let decimals = endpoint.try_decimals();
+
+    // Common
+    contract = new ERC20Delegation(address);
+    contract.name = name.reverted ? null : name.value;
+    contract.symbol = symbol.reverted ? null : symbol.value;
+    contract.decimals = decimals.reverted ? 18 : decimals.value;
+    contract.totalSupply = fetchERC20BalanceDelegated(contract, null).id;
+    contract.asAccount = address;
+    contract.save();
+
+    let account = fetchAccount(address);
+    account.asERC20 = address;
+    account.save();
+  }
+
+  return contract;
+}
+
+export function fetchDelegationStatus(contract: ERC20Delegation, account: Account): DelegationStatus {
+  let id = contract.id.toHex().concat("/").concat(account.id.toHex());
+  let delegationStatus = DelegationStatus.load(id);
+
+  if (delegationStatus == null) {
+    delegationStatus = new DelegationStatus(id);
+    delegationStatus.contract = contract.id;
+    delegationStatus.delegator = account.id;
+    delegationStatus.save();
+  }
+
+  return delegationStatus as DelegationStatus;
+}
+
 export function fetchERC20Balance(contract: ERC20Contract, account: Account | null): ERC20Balance {
+  let id = contract.id
+    .toHex()
+    .concat("/")
+    .concat(account ? account.id.toHex() : "totalSupply");
+  let balance = ERC20Balance.load(id);
+
+  if (balance == null) {
+    balance = new ERC20Balance(id);
+    balance.contract = contract.id;
+    balance.account = account ? account.id : null;
+    balance.value = constants.BIGDECIMAL_ZERO;
+    balance.valueExact = constants.BIGINT_ZERO;
+    balance.save();
+  }
+
+  return balance as ERC20Balance;
+}
+
+export function fetchERC20BalanceDelegated(contract: ERC20Delegation, account: Account | null): ERC20Balance {
   let id = contract.id
     .toHex()
     .concat("/")
