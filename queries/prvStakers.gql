@@ -1,0 +1,15 @@
+"""
+Anyone with at least some PRV staked or pending to be staked.
+Note: pending stakes are included, call the rollstaker contract for active staked balances as it will depend on epoch
+{
+  "block": 17165587, "skip": 0
+}
+"""
+query PRVStakers($block: Int, $skip: Int) {
+  prvstakingBalances(skip: $skip, block: { number: $block }, where: { value_not: "0" }) {
+  account {
+      id
+    }
+    value
+  }
+}
