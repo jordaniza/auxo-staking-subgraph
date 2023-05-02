@@ -10,6 +10,7 @@ import {
 } from "../../generated/schema";
 
 import { IERC20 } from "../../generated/Auxo/IERC20";
+import { IERC20Delegation } from "../../generated/ARV/IERC20Delegation";
 
 import { constants } from "@amxx/graphprotocol-utils";
 
@@ -45,7 +46,7 @@ export function fetchERC20Delegation(address: Address): ERC20Delegation {
   let contract = ERC20Delegation.load(address);
 
   if (contract == null) {
-    let endpoint = IERC20.bind(address);
+    let endpoint = IERC20Delegation.bind(address);
     let name = endpoint.try_name();
     let symbol = endpoint.try_symbol();
     let decimals = endpoint.try_decimals();
