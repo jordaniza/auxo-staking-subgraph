@@ -1,10 +1,17 @@
 import { Address } from "@graphprotocol/graph-ts";
 import { decimals } from "@amxx/graphprotocol-utils";
-import { ERC20Transfer } from "../generated/schema";
-import { Transfer as TransferEvent, Approval as ApprovalEvent } from "../generated/Auxo/IERC20";
+import { ERC20Transfer, ERC20DelegateChanged } from "../generated/schema";
 import { fetchAccount } from "./fetch/account";
-import { fetchERC20, fetchERC20Balance, fetchERC20Approval } from "./fetch/erc20";
+import {
+  fetchERC20,
+  fetchERC20Balance,
+  fetchERC20Approval,
+  fetchERC20Delegation,
+  fetchDelegationStatus,
+} from "./fetch/erc20";
 import { events, transactions } from "./wrappers/amxx";
+import { Transfer as TransferEvent, Approval as ApprovalEvent } from "../generated/Auxo/IERC20";
+import { DelegateChanged as DelegateChangedEvent } from "../generated/ARV/IERC20Delegation";
 
 export function handleTransfer(event: TransferEvent): void {
   let contract = fetchERC20(event.address);
@@ -59,4 +66,31 @@ export function handleApproval(event: ApprovalEvent): void {
   approval.valueExact = event.params.value;
   approval.value = decimals.toDecimals(event.params.value, contract.decimals);
   approval.save();
+}
+
+export function handleDelegateChanged(event: DelegateChangedEvent): void {
+  let ev = new ERC20DelegateChanged(events.id(event));
+
+  let contract = fetchERC20Delegation(event.address);
+  let delegator = fetchAccount(event.params.delegator);
+  let fromDelegate = fetchAccount(event.params.fromDelegate);
+  let toDelegate = fetchAccount(event.params.toDelegate);
+
+  ev.emitter = contract.id;
+  ev.transaction = transactions.log(event).id;
+  ev.timestamp = event.block.timestamp;
+  ev.contract = contract.id;
+
+  ev.delegator = delegator.id;
+  ev.fromDelegate = fromDelegate.id;
+  ev.toDelegate = toDelegate.id;
+
+  let status = fetchDelegationStatus(contract, delegator);
+
+  ev.current = status.id;
+  status.delegate = toDelegate.id;
+  status.delegator = delegator.id;
+
+  status.save();
+  ev.save();
 }

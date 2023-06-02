@@ -1,0 +1,32 @@
+type ERC20Delegation implements IERC20Contract @entity {
+  id: Bytes!
+  asAccount: Account!
+  name: String
+  symbol: String
+  decimals: Int!
+  totalSupply: ERC20Balance!
+  balances: [ERC20Balance!]! @derivedFrom(field: "contract")
+  approvals: [ERC20Approval!]! @derivedFrom(field: "contract")
+  transfers: [ERC20Transfer!]! @derivedFrom(field: "contract")
+  delegations: [DelegationStatus!]! @derivedFrom(field: "contract")
+}
+
+type DelegationStatus @entity {
+  id: ID!
+  contract: ERC20Delegation!
+  delegate: Account
+  delegator: Account!
+  delegateChangedEvent: [ERC20DelegateChanged!]! @derivedFrom(field: "current")
+}
+
+type ERC20DelegateChanged implements Event @entity(immutable: true) {
+  id: ID!
+  emitter: Account!
+  transaction: Transaction!
+  timestamp: BigInt!
+  contract: ERC20Delegation!
+  delegator: Account!
+  fromDelegate: Account!
+  toDelegate: Account!
+  current: DelegationStatus!
+}

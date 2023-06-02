@@ -45,7 +45,52 @@ type Transaction @entity(immutable: true) {
   events: [Event!]! @derivedFrom(field: "transaction")
 }
 
-type ERC20Contract @entity(immutable: true) {
+type ERC20Delegation implements IERC20Contract @entity {
+  id: Bytes!
+  asAccount: Account!
+  name: String
+  symbol: String
+  decimals: Int!
+  totalSupply: ERC20Balance!
+  balances: [ERC20Balance!]! @derivedFrom(field: "contract")
+  approvals: [ERC20Approval!]! @derivedFrom(field: "contract")
+  transfers: [ERC20Transfer!]! @derivedFrom(field: "contract")
+  delegations: [DelegationStatus!]! @derivedFrom(field: "contract")
+}
+
+type DelegationStatus @entity {
+  id: ID!
+  contract: ERC20Delegation!
+  delegate: Account
+  delegator: Account!
+  delegateChangedEvent: [ERC20DelegateChanged!]! @derivedFrom(field: "current")
+}
+
+type ERC20DelegateChanged implements Event @entity(immutable: true) {
+  id: ID!
+  emitter: Account!
+  transaction: Transaction!
+  timestamp: BigInt!
+  contract: ERC20Delegation!
+  delegator: Account!
+  fromDelegate: Account!
+  toDelegate: Account!
+  current: DelegationStatus!
+}
+
+interface IERC20Contract {
+  id: Bytes!
+  asAccount: Account!
+  name: String
+  symbol: String
+  decimals: Int!
+  totalSupply: ERC20Balance!
+  balances: [ERC20Balance!]!
+  approvals: [ERC20Approval!]!
+  transfers: [ERC20Transfer!]!
+}
+
+type ERC20Contract implements IERC20Contract @entity(immutable: true) {
   id: Bytes!
   asAccount: Account!
   name: String
@@ -59,7 +104,7 @@ type ERC20Contract @entity(immutable: true) {
 
 type ERC20Balance @entity {
   id: ID!
-  contract: ERC20Contract!
+  contract: IERC20Contract!
   account: Account
   value: BigDecimal!
   valueExact: BigInt!
@@ -72,7 +117,7 @@ type ERC20Transfer implements Event @entity(immutable: true) {
   emitter: Account!
   transaction: Transaction!
   timestamp: BigInt!
-  contract: ERC20Contract!
+  contract: IERC20Contract!
   from: Account
   fromBalance: ERC20Balance
   to: Account
@@ -83,7 +128,7 @@ type ERC20Transfer implements Event @entity(immutable: true) {
 
 type ERC20Approval @entity {
   id: ID!
-  contract: ERC20Contract!
+  contract: IERC20Contract!
   owner: Account!
   spender: Account!
   value: BigDecimal!

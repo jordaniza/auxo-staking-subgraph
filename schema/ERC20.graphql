@@ -1,4 +1,16 @@
-type ERC20Contract @entity(immutable: true) {
+interface IERC20Contract {
+  id: Bytes!
+  asAccount: Account!
+  name: String
+  symbol: String
+  decimals: Int!
+  totalSupply: ERC20Balance!
+  balances: [ERC20Balance!]!
+  approvals: [ERC20Approval!]!
+  transfers: [ERC20Transfer!]!
+}
+
+type ERC20Contract implements IERC20Contract @entity(immutable: true) {
   id: Bytes!
   asAccount: Account!
   name: String
@@ -12,7 +24,7 @@ type ERC20Contract @entity(immutable: true) {
 
 type ERC20Balance @entity {
   id: ID!
-  contract: ERC20Contract!
+  contract: IERC20Contract!
   account: Account
   value: BigDecimal!
   valueExact: BigInt!
@@ -25,7 +37,7 @@ type ERC20Transfer implements Event @entity(immutable: true) {
   emitter: Account!
   transaction: Transaction!
   timestamp: BigInt!
-  contract: ERC20Contract!
+  contract: IERC20Contract!
   from: Account
   fromBalance: ERC20Balance
   to: Account
@@ -36,7 +48,7 @@ type ERC20Transfer implements Event @entity(immutable: true) {
 
 type ERC20Approval @entity {
   id: ID!
-  contract: ERC20Contract!
+  contract: IERC20Contract!
   owner: Account!
   spender: Account!
   value: BigDecimal!
